@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heaven Interiors</title>
+    <link rel="icon" href="images/logo.jpeg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Rajdhani", sans-serif;
+      }
+      p {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        line-height: 1.32;
+        padding: 32px;
+      }
+      h1 {
+        font-size: 30px;
+        letter-spacing: 1.6px;
+        line-height: 1.4;
+      }
+      h2 {
+        letter-spacing: 1.6px;
+        line-height: 1.4;
+      }
+      strong {
+        font-size: 28px;
+        font-weight: 800;
+      }
+      nav {
+        background-color: rgba(44, 62, 80, 1);
+        color: white;
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+      }
+      nav a {
+        padding: 16px 32px;
+        color: white;
+        text-decoration: none;
+        font-size: 22px;
+        display: inline-block;
+        width: 100%;
+      }
+      nav a:hover {
+        background: rgba(236, 240, 241, 1);
+        color: black;
+        border-radius: 8px;
+      }
+      nav .fw {
+        text-align: center;
+        border-bottom: 0.25px solid white;
+      }
+      .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .column {
+        flex-direction: column;
+      }
+      .row {
+        flex-direction: row;
+      }
+      .v-center {
+        align-items: center !important;
+      }
+      .h-center {
+        justify-content: center !important;
+      }
+      nav .flex-container:nth-child(2) {
+        flex-direction: column;
+        height: 0;
+        visibility: hidden;
+      }
+
+      .flex-container:nth-child(2) .fw:nth-child(3) {
+        margin-bottom: 8px;
+      }
+      .logo,
+      .name {
+        padding: 12px;
+      }
+      .name {
+        padding-left: 24px;
+      }
+      .fa-bars {
+        display: inline;
+        position: absolute;
+        top: 15px;
+        right: 2px;
+        color: white;
+        font-size: 28px;
+        margin-right: 10px;
+        z-index: 10;
+      }
+      .grow-ani {
+        animation: grow 0.1s linear;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes grow {
+        from {
+          height: 0;
+          visibility: hidden;
+        }
+        to {
+          height: 190px;
+          visibility: visible;
+        }
+      }
+
+      section {
+        min-height: 100vh;
+        /*min-height: calc(~"100vh - 190px"); */
+      }
+
+      /* FOOTER START */
+      .footer {
+        background-color: #2c3e50;
+        color: white;
+      }
+      .footer-item-1 {
+        padding-left: 30px;
+        padding-top: 30px;
+      }
+      .footer-item-2 {
+        padding-left: 30px;
+        padding-bottom: 20px;
+      }
+      .side {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        opacity: 1;
+      }
+
+      .side i {
+        padding: 15px;
+        border: 0.25px solid #34495e;
+        background: rgba(44, 62, 80, 0.95);
+        transition: all 0.33;
+      }
+      .side i:hover {
+        background: rgb(167, 189, 210);
+      }
+      .fa-brands {
+        font-size: 32px;
+        padding-top: 10px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+      }
+      .fa-facebook {
+        color: #4267b2;
+      }
+      .fa-twitter {
+        color: #1da1f2;
+      }
+      .fa-instagram {
+        color: #e1306c;
+      }
+      .fa-pinterest {
+        color: #e60023;
+      }
+      .fa-youtube {
+        color: #ff0000;
+      }
+      .fa-whatsapp {
+        color: #25d366;
+      }
+      .fa-star {
+        color: rgba(241, 196, 15, 1);
+        font-size: 32px;
+      }
+      .sticky-bottom {
+        border-radius: 50%;
+        background: rgba(44, 62, 80, 1);
+        position: fixed;
+        bottom: 35px;
+        right: 35px;
+        animation: glow 0.8s infinite;
+      }
+      .sticky-bottom i {
+        font-size: 42px;
+        margin-left: 15px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding: 6px;
+        animation: circle-animation 0.8s linear infinite alternate;
+      }
+      section:nth-child(odd) {
+        background: #f1f2f6;
+        color: black;
+      }
+      section:nth-child(even) {
+        background: #a4b0be;
+        color: black;
+      }
+      .product-flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+      .product-name {
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .content {
+        flex: 2 1 0;
+      }
+      .product-image img {
+        flex: 1 1 0;
+        height: 300px;
+        width: 300px;
+        /*box-shadow: 2px 2px 3px 3px black;*/
+      }
+
+      @media screen and (min-width: 768px) {
+        .fa-bars {
+          display: none;
+        }
+        .nav-main-container {
+          display: flex;
+        }
+
+        nav .flex-container:nth-child(2) {
+          margin-top: 15px;
+          flex-direction: row;
+          height: initial;
+          visibility: visible;
+          position: absolute;
+          top: 0;
+          right: 10px;
+        }
+        nav .fw {
+          border-bottom: none;
+        }
+        .flex-container:nth-child(2) .fw:nth-child(3) {
+          margin-bottom: 0px;
+        }
+
+        .relative-container {
+          position: relative;
+        }
+        .footer-item-1 {
+          padding-left: 100px;
+          padding-bottom: 30px;
+        }
+        .footer-item-2 {
+          position: absolute;
+          right: 10px;
+        }
+        iframe {
+          width: 800px;
+          height: 600px;
+        }
+        .product-image img {
+          margin-left: 35px;
+          margin-right: 35px;
+          height: 450px;
+          width: 450px;
+        }
+        section:nth-child(odd) {
+          display: flex;
+          flex-wrap: wrap;
+          background: rgba(52, 73, 94, 0.9);
+          color: white;
+        }
+
+        section:nth-child(even) {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row-reverse;
+          background: #a4b0be;
+          color: black;
+        }
+        p {
+          font-size: 28px;
+          letter-spacing: 1.5px;
+          line-height: 1.32;
+          padding: 32px;
+        }
+        h1 {
+          font-size: 36px;
+          letter-spacing: 1.6px;
+          line-height: 1.4;
+        }
+        h2 {
+          letter-spacing: 1.6px;
+          line-height: 1.4;
+        }
+        strong {
+          font-size: 32px;
+          font-weight: 800;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav-main-container">
+      <div class="flex-container">
+        <div class="logo">
+          <img src="images/logo.png" height="48px" width="48px" />
+        </div>
+        <div class="name">
+          <h2 class="company-name">HEAVEN INTERIORS &nbsp;&nbsp;</h2>
+          <h2 class="phone-num">+91-7200387876</h2>
+        </div>
+      </div>
+      <div class="flex-container">
+        <div class="fw"><a href="./index.html">HOME</a></div>
+        <div class="fw"><a href="./products.html">PRODUCTS</a></div>
+        <div class="fw"><a href="./index.html#about-us">ABOUT US</a></div>
+      </div>
+      <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+    </nav>
+
+    <section class="product-flex">
+      <div class="content">
+        <h1 class="product-name">PRODUCT NAME</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
+          architecto doloribus neque commodi nesciunt voluptates dolor
+          repudiandae a numquam ipsum?
+        </p>
+      </div>
+      <div class="product-image"><img src="./images/11.jpg" /></div>
+    </section>
+
+    <section class="product-flex">
+      <div class="content">
+        <h1 class="product-name">PRODUCT NAME</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
+          architecto doloribus neque commodi nesciunt voluptates dolor
+          repudiandae a numquam ipsum?
+        </p>
+      </div>
+      <div class="product-image"><img src="./images/12.jpg" /></div>
+    </section>
+
+    <section class="product-flex">
+      <div class="content">
+        <h1 class="product-name">PRODUCT NAME</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
+          architecto doloribus neque commodi nesciunt voluptates dolor
+          repudiandae a numquam ipsum?
+        </p>
+      </div>
+      <div class="product-image"><img src="./images/14.jpg" /></div>
+    </section>
+
+    <section class="product-flex">
+      <div class="content">
+        <h1 class="product-name">PRODUCT NAME</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
+          architecto doloribus neque commodi nesciunt voluptates dolor
+          repudiandae a numquam ipsum?
+        </p>
+      </div>
+      <div class="product-image"><img src="./images/15.jpg" /></div>
+    </section>
+
+    <section class="product-flex">
+      <div class="content">
+        <h1 class="product-name">PRODUCT NAME</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
+          architecto doloribus neque commodi nesciunt voluptates dolor
+          repudiandae a numquam ipsum?
+        </p>
+      </div>
+      <div class="product-image"><img src="./images/16.jpg" /></div>
+    </section>
+
+    <section class="product-flex">
+      <div class="content">
+        <h1 class="product-name">PRODUCT NAME</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
+          architecto doloribus neque commodi nesciunt voluptates dolor
+          repudiandae a numquam ipsum?
+        </p>
+      </div>
+      <div class="product-image"><img src="./images/17.jpg" /></div>
+    </section>
+
+    <section class="product-flex">
+      <div class="content">
+        <h1 class="product-name">PRODUCT NAME</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
+          architecto doloribus neque commodi nesciunt voluptates dolor
+          repudiandae a numquam ipsum?
+        </p>
+      </div>
+      <div class="product-image"><img src="./images/18.jpg" /></div>
+    </section>
+
+    <footer class="footer">
+      <div class="flex-container v-center relative-container">
+        <div class="footer-item-1">
+          <h2>HEAVEN INTERIORS</h2>
+          <div class="address">
+            <h2>No. 16, Thanthai Periyar street,</h2>
+            <h2>Dr.Ambedkar puratchi nagar,</h2>
+            <h2>Perungudi,</h2>
+            <h2>Chennai - 600096</h2>
+            <h2>+91-7200387876</h2>
+          </div>
+        </div>
+        <div class="social footer-item-2">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-youtube"></i>
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+      </div>
+    </footer>
+    <script>
+      function toggleMenu() {
+        console.log("flex-container 2222");
+        var navs = document.querySelectorAll("nav .flex-container");
+        console.log("flex-container 2222", navs);
+        if (navs[1].classList.contains("grow-ani")) {
+          navs[1].classList.remove("grow-ani");
+        } else {
+          navs[1].classList.add("grow-ani");
+        }
+      }
+    </script>
+  </body>
+</html>

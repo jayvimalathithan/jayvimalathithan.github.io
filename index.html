@@ -1,103 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
-   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <title>Heaven Interior</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heaven Interiors</title>
+    <link rel="icon" href="images/logo.jpeg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <style>
-    * {
-        box-sizing: border-box;
-        margin:0;
+      * {
+        margin: 0;
         padding: 0;
-    }
-    
-:root{
-   font-family: "Raleway", sans-serif;
-   font-size: 16px;
-   font-weight: 400;
-}
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Rajdhani", sans-serif;
+      }
+      p {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        line-height: 1.32;
+        padding: 32px;
+      }
+      h1 {
+        font-size: 30px;
+        letter-spacing: 1.6px;
+        line-height: 1.4;
+      }
+      h2 {
+        letter-spacing: 1.6px;
+        line-height: 1.4;
+      }
+      strong {
+        font-size: 28px;
+        font-weight: 800;
+      }
+      nav {
+        background-color: rgba(44, 62, 80, 1);
+        color: white;
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+      }
+      nav a {
+        padding: 16px 32px;
+        color: white;
+        text-decoration: none;
+        font-size: 22px;
+        display: inline-block;
+        width: 100%;
+      }
+      nav a:hover {
+        background: rgba(236, 240, 241, 1);
+        color: black;
+        border-radius: 8px;
+      }
+      nav .fw {
+        text-align: center;
+        border-bottom: 0.25px solid white;
+      }
+      .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .column {
+        flex-direction: column;
+      }
+      .row {
+        flex-direction: row;
+      }
+      .v-center {
+        align-items: center !important;
+      }
+      .h-center {
+        justify-content: center !important;
+      }
+      nav .flex-container:nth-child(2) {
+        flex-direction: column;
+        height: 0;
+        visibility: hidden;
+      }
 
-/* carousel */
-   
-    .carousel{
-        position: relative;   
-    }
+      .flex-container:nth-child(2) .fw:nth-child(3) {
+        margin-bottom: 8px;
+      }
+      .logo,
+      .name {
+        padding: 12px;
+      }
+      .name {
+        padding-left: 24px;
+      }
+      .fa-bars {
+        display: inline;
+        position: absolute;
+        top: 15px;
+        right: 2px;
+        color: white;
+        font-size: 28px;
+        margin-right: 10px;
+        z-index: 10;
+      }
+      .grow-ani {
+        animation: grow 0.1s linear;
+        animation-fill-mode: forwards;
+      }
 
-    .carousel_inner{
+      @keyframes grow {
+        from {
+          height: 0;
+          visibility: hidden;
+        }
+        to {
+          height: 190px;
+          visibility: visible;
+        }
+      }
+      .pt-30 {
+        padding-top: 30px;
+      }
+
+      section {
+        min-height: 100vh;
+        /*min-height: calc(~"100vh - 190px"); */
+      }
+
+      .section-1 {
+        background: #57606f;
+        color: white;
+      }
+      .section-2 {
+        background: #ffffff;
+        color: white;
+      }
+      .section-3 {
+        background: #a4b0be;
+        color: rgba(0, 0, 0, 0.65);
+      }
+
+      /* CAROUSEL START */
+      .carousel {
+        position: relative;
+      }
+
+      .carousel_inner {
         width: 100%;
         overflow: hidden;
-    }
+      }
 
-    .carousel_inner::after{
+      .carousel_inner::after {
         content: "";
         display: block;
         clear: both;
-    }
+      }
 
-    .carousel_item{
+      .carousel_item {
         position: relative;
         float: left;
         display: none;
         width: 100%;
         margin-right: -100%;
         /*background: linear-gradient(to bottom, rgba(255,0,0,0.35),rgba(255,0,0,0.55),rgba(255,0,0,0.65));*/
-    }
+      }
 
-    /* slide effect */
-    .carousel_item__active,
-    .carousel_item__pos_prev,
-    .carousel_item__pos_next{
+      /* slide effect */
+      .carousel_item__active,
+      .carousel_item__pos_prev,
+      .carousel_item__pos_next {
         display: block;
-    }
+      }
 
-    .carousel_item__pos_prev{
+      .carousel_item__pos_prev {
         left: -100%;
-    }
+      }
 
-    .carousel_item__pos_next{
+      .carousel_item__pos_next {
         left: 100%;
-    }
+      }
 
-    .carousel_item__prev{
+      .carousel_item__prev {
         transform: translateX(100%);
-        transition: transform .5s ease-in-out;
-    }
+        transition: transform 0.5s ease-in-out;
+      }
 
-    .carousel_item__next{
+      .carousel_item__next {
         transform: translateX(-100%);
-        transition: transform .5s ease-in-out;
-    }
+        transition: transform 0.5s ease-in-out;
+      }
 
-    /* fade effect */
-    .carousel__fade .carousel_item__pos_prev,
-    .carousel__fade .carousel_item__pos_next{
+      /* fade effect */
+      .carousel__fade .carousel_item__pos_prev,
+      .carousel__fade .carousel_item__pos_next {
         left: 0;
         opacity: 0;
-    }
+      }
 
-    .carousel__fade .carousel_item__prev,
-    .carousel__fade .carousel_item__next{
-    transform: none;
-    opacity: 1;
-    transition: opacity .5s ease-in-out;
-    }
+      .carousel__fade .carousel_item__prev,
+      .carousel__fade .carousel_item__next {
+        transform: none;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
 
-    .carousel__fade .carousel_item__active.carousel_item__prev,
-    .carousel__fade .carousel_item__active.carousel_item__next{
-     opacity: 0;
-    }
+      .carousel__fade .carousel_item__active.carousel_item__prev,
+      .carousel__fade .carousel_item__active.carousel_item__next {
+        opacity: 0;
+      }
 
-    /* carousel */
-    .carousel_img{
+      /* carousel */
+      .carousel_img {
         display: block;
         width: 100%;
-        height:600px;
-    }
+        height: 50%;
+      }
 
-    .carousel_caption{
+      .carousel_caption {
         position: absolute;
         top: 0;
         left: 0;
@@ -111,51 +243,49 @@
         text-align: center;
         color: #fff;
         z-index: 1;
-    }
+      }
 
-    .carousel_title{
+      .carousel_title {
         font-family: "Montserrat", sans-serif;
         font-weight: 600;
-        color:rgba(247, 183, 49,1.0);
-        border:5px solid red;
-
-    }
-    .carousel_description{
+        color: rgba(247, 183, 49, 1);
+        border: 5px solid red;
+      }
+      .carousel_description {
         margin-top: 0.75rem;
         line-height: 150%;
-        color:white;
-        border:5px solid green;
+        color: white;
+        border: 5px solid green;
+      }
 
-    }
-
-    .carousel_indicator{
+      .carousel_indicator {
         position: absolute;
         bottom: 1rem;
         left: 50%;
         transform: translateX(-50%);
         display: flex;
         flex-direction: row;
-        gap: .5rem;
+        gap: 0.5rem;
         z-index: 1;
-    }
+      }
 
-    .carousel_dot{
+      .carousel_dot {
         display: block;
-        padding: .25rem;
-        background-color: rgba(255, 255, 255, .25);
+        padding: 0.25rem;
+        background-color: rgba(255, 255, 255, 0.25);
         border: none;
         border-radius: 50%;
         cursor: pointer;
-        transition: background-color .5s ease-in-out;
-    }
+        transition: background-color 0.5s ease-in-out;
+      }
 
-    .carousel_dot__active{
+      .carousel_dot__active {
         background-color: lightskyblue;
         cursor: default;
         pointer-events: none;
-    }
+      }
 
-    .carousel_control{
+      .carousel_control {
         position: absolute;
         top: 0;
         left: 0;
@@ -164,59 +294,70 @@
         justify-content: space-between;
         width: 100%;
         height: 100%;
-    }
+      }
 
-    .carousel_button{
+      .carousel_button {
         display: block;
         padding-inline: 1rem;
         font-family: "Raleway", sans-serif;
         font-size: 1.375rem;
         background-color: transparent;
-        color: rgba(255, 255, 255, .25);
+        color: rgba(255, 255, 255, 0.25);
         border: none;
         cursor: pointer;
-        transition: color .25s;
+        transition: color 0.25s;
         z-index: 1;
-    }
+      }
 
-    .carousel_button:hover{
-     color: rgba(135, 206, 250, .75);
-    }
+      .carousel_button:hover {
+        color: rgba(135, 206, 250, 0.75);
+      }
 
-    p,h3,h2,h1 {
-        font-family:monospace;
-        letter-spacing: 1.6px;
-        line-height: 1.4em;
-    }
-    p { font-size: 20px;}
-    .footer {
-        background-color: #2c3e50;
-        height: 350px;
-        color:white;
-    }
-    .fa-brands {
-        font-size:32px;
-        margin-right:15px;
-    }
-    .flex-col {
-        display:flex;
-        justify-content: flex-end;
-    }
-    .flex-col > div {
-        padding-top:75px;
-        flex: 1 1 100px;
-        text-align: left;
-    }
-    .flex-col > div:nth-child(1) {
-      /*  text-align: center; */
-      margin-left: 50px;
-    }
-    .flex-col > div:nth-child(2) { 
+      /* CAROUSEL END */
+
+      /* REVIEW START*/
+      .review-container {
+        background: rgba(236, 240, 241, 1);
+        overflow-x: auto;
+      }
+      .review-section {
+        text-align: center;
+      }
+      .review {
+        flex: 1 1 0;
+        margin: 10px;
+        padding: 15px;
+        border: 1.75px solid black;
+        border-radius: 12px;
+        box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0.45);
+        transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+      .review:hover {
+        box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.45);
+        transform: scaleY(1.01);
+      }
+      .ratings {
+        margin-top: 15px;
+      }
+      .right {
         text-align: right;
-        margin-right: 50px;
-    }
-  
-    .side {
+      }
+      /* REVIEW END*/
+
+      /* FOOTER START */
+      .footer {
+        background-color: #2c3e50;
+        color: white;
+      }
+      .footer-item-1 {
+        padding-left: 30px;
+        padding-top: 30px;
+      }
+      .footer-item-2 {
+        padding-left: 30px;
+        padding-bottom: 20px;
+      }
+      .side {
         display: flex;
         flex-direction: column;
         position: fixed;
@@ -224,531 +365,480 @@
         left: 0;
         transform: translateY(-50%);
         opacity: 1;
-    }
-        
-    .side i {
-        padding:15px;
-        border:0.25px solid #34495e;
-        background:rgba(44, 62, 80,0.95);
+      }
+
+      .side i {
+        padding: 15px;
+        border: 0.25px solid #34495e;
+        background: rgba(44, 62, 80, 0.95);
         transition: all 0.33;
-    }
-    .side i:hover {
-        background:rgb(167, 189, 210);
-    }
-    .fa-facebook { color: #4267B2; }
-    .fa-twitter { color:#1DA1F2; }
-    .fa-instagram { color:	#E1306C; }
-    .fa-pinterest { color:#E60023; }
-    .fa-youtube { color: #FF0000; }
-    .fa-whatsapp { color:#25D366;}
-    .fa-star { color:rgba(241, 196, 15,1.0); font-size:32px; }
-    .sticky-bottom {
+      }
+      .side i:hover {
+        background: rgb(167, 189, 210);
+      }
+      .fa-brands {
+        font-size: 32px;
+        padding-top: 10px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+      }
+      .fa-facebook {
+        color: #4267b2;
+      }
+      .fa-twitter {
+        color: #1da1f2;
+      }
+      .fa-instagram {
+        color: #e1306c;
+      }
+      .fa-pinterest {
+        color: #e60023;
+      }
+      .fa-youtube {
+        color: #ff0000;
+      }
+      .fa-whatsapp {
+        color: #25d366;
+      }
+      .fa-star {
+        color: rgba(241, 196, 15, 1);
+        font-size: 32px;
+      }
+      .sticky-bottom {
         border-radius: 50%;
-        background: rgba(44, 62, 80,1.0);
+        background: rgba(44, 62, 80, 1);
         position: fixed;
-        bottom:35px;
-        right:35px;
+        bottom: 35px;
+        right: 35px;
         animation: glow 0.8s infinite;
-        
-    }
-    .sticky-bottom i {
+      }
+      .sticky-bottom i {
         font-size: 42px;
         margin-left: 15px;
-        margin-top:5px;
-        margin-bottom:5px;
-        padding:6px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding: 6px;
         animation: circle-animation 0.8s linear infinite alternate;
-    }
-    @keyframes circle-animation {
-        from {
-            padding:6px;
-        }
-        to {
-            padding:8px;
-        }
-    }
-
-    @keyframes glow {
-        0% { box-shadow: 0px 0px 5px 5px rgba(22, 160, 133,0.33); }
-        50% { box-shadow: 0px 0px 8px 8px rgba(22, 160, 133,0.66); }
-        100% { box-shadow: 0px 0px 11px 11px rgba(22, 160, 133,1); }
-    }
-    @keyframes grow {
-        from { height:0; }
-        to { height: 320px; }
-    }
-    .grow-ani { animation: grow 0.3s linear;  animation-fill-mode: forwards;}
-    .text {
-        background: rgba(52, 73, 94,1.0);
-        color:white;
-        padding:40px;
-    }
-    .text p {
-        margin-top:45px;
-        line-height: 1.6em;
-    }
-    .review-container {
-        background:rgba(236, 240, 241,1.0);
-        overflow-x: auto;
-    }
-    .review-section {
-       text-align: center;
-       display: flex;
-    }
-    .review {
-        padding:25px;
-        border:1.75px solid black;
-        border-radius: 18px;
-        margin-left:15px;
-        margin-top:85px;
-        margin-bottom: 85px;
-        box-shadow: 5px 5px 6px 6px rgba(0,0,0,0.65);
-        transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
-
-    }
-    .review:hover {
-        box-shadow: 5px 5px 9px 9px rgba(100, 82, 82, 0.85);
-        transform: scaleY(1.025);
-    }
-    .review:first-child { margin-left:30px; }
-    .review:last-child { margin-right:30px; }
-    .ratings {
-        margin-top: 15px;
-    }
-    .right {
-        text-align: right;
-    }
-    .center-center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .flex {
-        display: flex;
-        border:1px solid red;
-    }
-    .flex  div { border:1px solid green;height:100px;width:100%; }
-    .h-100 { height:100%; }
-    .h-50 { height:50%; }
-    .col {
-        flex-direction: column;
-    }
-    .header-center {
-        
-    }
-    .header-center * {
+      }
+      .pb-15 {
+        padding-bottom: 15px;
+      }
+      iframe {
+        width: 90%;
+        height: 400px;
+      }
+      .header-center * {
         padding-top: 30px;
         text-align: center;
-    }
-    .contact-container {
-        background:rgba(189, 195, 199,1.0);
-        height:650px;
-    }
-    .contact {
-        border: 3.5px solid black;
-        border-radius:18px;
-        height:450px;
-        width:60%;
-    }
-    .fa-bars {
-        position:absolute;
-        top:15px;
-        right:10px;
-        color:white;
-        font-size:32px;
-        margin-left:10px;
-        z-index:10;
-        height:42px;
-        width:42px;
-    }
-    .nav-main-container {
-         background-color: rgba(44, 62, 80,1.0);
-         color:white;
-         position: static;
-         top:0;
-         left:0;
-         right:0;
-         z-index:1;
-
-         letter-spacing: 1.6px;
-        text-transform: uppercase;
-        font-family: 'Times New Roman', Times, serif;
-        text-align: left;
-    }
-    .nav-flex-container {
-        display: flex;
-        text-align: center;
-    }
-    .nav-flex-container:nth-child(2) {
-        flex-direction: column;
-    }
-    .nav-flex-container a {
-        padding: 12px 18px;
-        text-decoration: none;
-        color:white;
-        border-radius:12px;
-        transition: all 0.3s;
-    }
-    .nav-flex-container a:hover {
-        background: rgba(236, 240, 241,1.0);
-        color:black;
-        
-    }
-    .nav-flex-container > div {
-        margin: 10px;
-        padding: 20px;
-        font-size: 30px;
-    }
-    
-    .nav-flex-container > .fw { flex-basis:100%;}
-    .logo { flex-basis:10%; }
-    .name,.phone { flex-basis:40%;  }
-    .name h2,.phone h2 { font-size:18px; }
-    .address *{
-        margin-top:10px;
-    }
-    .video-info {
-        height:420px;
-        width:720px
-    }
-
-  
-
-    @media screen and (min-device-width: 768px) { 
-        .fa-bars { opacity:0;}
-        .review-container {
-            width:100%;
+      }
+      @keyframes circle-animation {
+        from {
+          padding: 6px;
         }
-       .review-section {
-           flex-direction: row;
-       }
-       .review {
-            margin:25px 10px;     
-       }
-       .nav-main-container {
-           display: flex;
-           
-       }
-       .nav-flex-container:nth-child(2) {
-            flex-direction: row;
+        to {
+          padding: 8px;
         }
-       .nav-main-container > div:nth-child(1) { flex-basis:40% }
-       .nav-main-container > div:nth-child(2) { flex-basis:60% }
-       .name h2,.phone h2 { font-size:24px; }
-   }
+      }
 
-    @media screen and (min-device-width: 481px) and (max-device-width: 800px) { 
-       .fa-bars { opacity:1;}
-       .side { opacity: 0; }
-        .review-section {
-           flex-direction: column;
-       }
-       .review {
-             margin:25px 35px;     
-       }
-       .nav-flex-container:nth-child(2) {
-            height: 0;
-       }
-     
-    }
+      @keyframes glow {
+        0% {
+          box-shadow: 0px 0px 5px 5px rgba(22, 160, 133, 0.33);
+        }
+        50% {
+          box-shadow: 0px 0px 8px 8px rgba(22, 160, 133, 0.66);
+        }
+        100% {
+          box-shadow: 0px 0px 11px 11px rgba(22, 160, 133, 1);
+        }
+      }
+      /* FOOTER END */
 
-    @media only screen and (max-device-width: 480px) {
-        .fa-bars { opacity:1;}
-        .side { opacity: 0; }
-        .review-section {
-           flex-direction: column;
-       }
-       .review {
-           margin:25px 35px;           
-       }
-       .nav-flex-container:nth-child(2) {
-            height: 0;
-       }
-    }
+      @media screen and (min-width: 768px) {
+        .fa-bars {
+          display: none;
+        }
+        .nav-main-container {
+          display: flex;
+        }
+
+        nav .flex-container:nth-child(2) {
+          margin-top: 15px;
+          flex-direction: row;
+          height: initial;
+          visibility: visible;
+          position: absolute;
+          top: 0;
+          right: 10px;
+        }
+        nav .fw {
+          border-bottom: none;
+        }
+        .flex-container:nth-child(2) .fw:nth-child(3) {
+          margin-bottom: 0px;
+        }
+
+        .relative-container {
+          position: relative;
+        }
+        .footer-item-1 {
+          padding-left: 100px;
+          padding-bottom: 30px;
+        }
+        .footer-item-2 {
+          position: absolute;
+          right: 10px;
+        }
+        iframe {
+          width: 800px;
+          height: 600px;
+        }
+        .pt-30 {
+          padding-top: 100px;
+        }
+        p {
+          font-size: 28px;
+          letter-spacing: 1.5px;
+          line-height: 1.32;
+          padding: 32px;
+        }
+        h1 {
+          font-size: 36px;
+          letter-spacing: 1.6px;
+          line-height: 1.4;
+        }
+        h2 {
+          letter-spacing: 1.6px;
+          line-height: 1.4;
+        }
+        strong {
+          font-size: 32px;
+          font-weight: 800;
+        }
+      }
     </style>
-
-       
-</head>
-<body>
-    <div class="nav-main-container" >
-        <div class="nav-flex-container">
-          <div class="logo"> <img src="images/logo.png" height="48px" width="48px" /> </div>
-          <div class="name"><h2 class="company-name">Heaven Interiors</h2></div>
-          <div class="phone"><h2 class="phone-num">+91-7200387876 </h2>  </div>  
+  </head>
+  <body>
+    <div class="container">
+      <nav class="nav-main-container">
+        <div class="flex-container">
+          <div class="logo">
+            <img src="images/logo.png" height="48px" width="48px" />
+          </div>
+          <div class="name">
+            <h2 class="company-name">HEAVEN INTERIORS &nbsp;&nbsp;</h2>
+            <h2 class="phone-num">+91-7200387876</h2>
+          </div>
         </div>
-        <div class="nav-flex-container">
-            <div class="fw"><a href="#car-container">HOME</a></div>
-            <div class="fw"><a href="#contact-container">PRODUCTS</a></div>
-            <div class="fw"><a href="#text-container">ABOUT US</a></div>
+        <div class="flex-container">
+          <div class="fw"><a href="./index.html">HOME</a></div>
+          <div class="fw"><a href="./products.html">PRODUCTS</a></div>
+          <div class="fw">
+            <a href="#about-us">ABOUT US</a>
+          </div>
         </div>
         <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
-    </div>
-    <!--
-        <div class="nav-main-container">
-        
-            <div class="logo"> 
-                <img src="images/logo.png" height="48px" width="48px" /> 
-            </div>
-            <div><h2 class="company-name">Heaven Interiors</h2></div>
-            <div>
-                <h2 class="phone-num">+91-7200387876 </h2>          
-            </div>
-            <div>
-                <div class="nav-flex-container">
-                    <div><a href="#car-container">HOME</a></div>
-                    <div><a href="#contact-container">PRODUCTS</a></div>
-                    <div><a href="#text-container">ABOUT US</a></div>  
-                </div>
-            </div>
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    -->
-    <div id="car-container" class="car-container"> 
+      </nav>
+      <div id="car-container" class="car-container">
         <div class="carousel">
-            <div class="carousel_inner">
+          <div class="carousel_inner">
             <div class="carousel_item carousel_item__active">
-                <img src="./images/1.jpeg" alt="" class="carousel_img">
+              <img src="./images/1.jpeg" alt="" class="carousel_img" />
             </div>
             <div class="carousel_item">
-                <img src="images/2.jpeg" alt="" class="carousel_img">
+              <img src="images/2.jpeg" alt="" class="carousel_img" />
             </div>
             <div class="carousel_item">
-                <img src="images/3.jpeg" alt="" class="carousel_img">
+              <img src="images/3.jpeg" alt="" class="carousel_img" />
             </div>
-            </div>
-    
-            <div class="carousel_indicator">
+          </div>
+
+          <div class="carousel_indicator">
             <button class="carousel_dot carousel_dot__active"></button>
             <button class="carousel_dot"></button>
             <button class="carousel_dot"></button>
-            </div>
-    
-            <div class="carousel_control">
+          </div>
+
+          <div class="carousel_control">
             <button class="carousel_button carousel_button__prev">
-                <i class="fas fa-chevron-left"></i>
+              <i class="fas fa-chevron-left"></i>
             </button>
             <button class="carousel_button carousel_button__next">
-                <i class="fas fa-chevron-right" ></i>
+              <i class="fas fa-chevron-right"></i>
             </button>
-            </div>
+          </div>
         </div>
-     </div>
+      </div>
 
-    <div class="container">
-        <div class="body">
-          <div id="contact-container" class="contact-container center-center">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/plR9QPGuN7E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-           <div id="text-container" class="text">
-            <p>
-                Heaven Mosquito screen is the trusted name in the manufacturing and supply of mosquito net doors and windows. With a state-of-the-art manufacturing facility and committed workforce, we produce truly global products with innovation and a healthy way of protection against flying insects. 
-                Our well-experienced marketing professionals and skilled technicians will provide you with the best solution for your needs. 
-            </p>
-            <p>
-                Heaven interiors is incepted in 2021, we are the apex in Manufacturer and Retailer of the best range of Window and Door Components, Mosquito Mesh, Mosquito Screens & Net and many more. Procured from the certified vendors of the market, all these products are highly applauded by the customers for their least maintenance, longer lifespan, robustness, seamless finish and abrasion & corrosion resistance. These products are stringently examined on variegated parameters of quality and then forwarded for the final dispatch to the clients. All these products are made available by us in various specifications, so as to meet the exact need of the customers.
-            </p>
-            <p>
-                Heaven interiors makes your space elegant and alluring with our mosquito screens and blinds
-                With great designs and promising quality we serve you our best of all
-                Visit us on once and you'll beleive us again.
-            </p>
-           </div>
-           <div id="review-container" class="review-container">
-                <div class="header-center">
-                    <h1>CUSTOMER REVIEW</h1>
-                </div>
-                <div class="review-section">
-                    <div class="review">
-                        <p>REVIEW 1 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium totam error blanditiis sapiente similique corrupti.</p><br/> <div class="right">- Ravi</div>
-                        <div class="ratings">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <p>REVIEW 2 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium totam error blanditiis sapiente similique corrupti.</p><br/> <div class="right">- Sundarrajan</div>
-                        <div class="ratings">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <p>REVIEW 3 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium totam error blanditiis sapiente similique corrupti.</p><br/> <div class="right">- Krishnamoorthy</div>
-                        <div class="ratings">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <p>REVIEW 4 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium totam error blanditiis sapiente similique corrupti.</p><br/> <div class="right">- Manikandan</div>
-                        <div class="ratings">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <p>REVIEW 5 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium totam error blanditiis sapiente similique corrupti.</p><br/> <div class="right">- Ayush</div>
-                        <div class="ratings">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-           </div>
-          
-        </div>
+      <section id="about-us" class="section-1">
+        <p class="pb-15 pt-30">
+          Heaven interiors makes your space elegant and alluring with our
+          mosquito screens and blinds With great designs and promising quality
+          we serve you our best of all Visit us on once and you'll beleive us
+          again.
+        </p>
 
-        <div class="footer">
-          <div class="flex-col">
-            <div>
-                <h2>HEAVEN INTERIORS</h2>
-                <div class="address">
-                    <h3>No. 16, Thanthai Periyar street,</h3>
-                    <h3>Dr.Ambedkar puratchi nagar,</h3>
-                    <h3>Perungudi,</h3>
-                    <h3>Chennai - 600096</h3>
-                    <h3>+91-7200387876</h3>
-                </div>
-               
+        <p class="pb-15">
+          Heaven Mosquito screen is the trusted name in the manufacturing and
+          supply of mosquito net doors and windows. With a state-of-the-art
+          manufacturing facility and committed workforce, we produce truly
+          global products with innovation and a healthy way of protection
+          against flying insects. Our well-experienced marketing professionals
+          and skilled technicians will provide you with the best solution for
+          your needs.
+        </p>
+        <p class="pb-15">
+          Heaven interiors is incepted in 2021, we are the apex in Manufacturer
+          and Retailer of the best range of Window and Door Components, Mosquito
+          Mesh, Mosquito Screens & Net and many more. Procured from the
+          certified vendors of the market, all these products are highly
+          applauded by the customers for their least maintenance, longer
+          lifespan, robustness, seamless finish and abrasion & corrosion
+          resistance. These products are stringently examined on variegated
+          parameters of quality and then forwarded for the final dispatch to the
+          clients. All these products are made available by us in various
+          specifications, so as to meet the exact need of the customers.
+        </p>
+      </section>
+
+      <section class="section-2 flex-container v-center h-center">
+        <div>
+          <iframe
+            src="https://www.youtube.com/embed/plR9QPGuN7E"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section id="review-container" class="section-3 review-container">
+        <div class="header-center pb-15">
+          <h1>CUSTOMER REVIEW</h1>
+        </div>
+        <div class="flex-container review-section">
+          <div class="review">
+            <p>
+              REVIEW 1 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Accusantium totam error blanditiis sapiente similique corrupti.
+            </p>
+            <br />
+            <div class="right">- Ravi</div>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
             </div>
-            <div class="social">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-youtube"></i>
-                <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div class="review">
+            <p>
+              REVIEW 2 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Accusantium totam error blanditiis sapiente similique corrupti.
+            </p>
+            <br />
+            <div class="right">- Sundarrajan</div>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <div class="review">
+            <p>
+              REVIEW 3 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Accusantium totam error blanditiis sapiente similique
+              corrupti.lorem ipsum dolor htotam err out text.
+            </p>
+            <br />
+            <div class="right">- Krishnamoorthy</div>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <div class="review">
+            <p>
+              REVIEW 4 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Accusantium totam error blanditiis sapiente similique corrupti.
+            </p>
+            <br />
+            <div class="right">- Manikandan</div>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <div class="review">
+            <p>
+              REVIEW 5 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Accusantium totam error blanditiis sapiente similique corrupti.
+            </p>
+            <br />
+            <div class="right">- Ayush</div>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
             </div>
           </div>
         </div>
-
-        <div class="social side">
+      </section>
+      <footer class="footer">
+        <div class="flex-container v-center relative-container">
+          <div class="footer-item-1">
+            <h2>HEAVEN INTERIORS</h2>
+            <div class="address">
+              <h2>No. 16, Thanthai Periyar street,</h2>
+              <h2>Dr.Ambedkar puratchi nagar,</h2>
+              <h2>Perungudi,</h2>
+              <h2>Chennai - 600096</h2>
+              <h2>+91-7200387876</h2>
+            </div>
+          </div>
+          <div class="social footer-item-2">
             <i class="fa-brands fa-facebook"></i>
             <i class="fa-brands fa-twitter"></i>
             <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-youtube"></i>
             <i class="fa-brands fa-whatsapp"></i>
+          </div>
         </div>
+      </footer>
 
-        <div class="social sticky-bottom">
-            <i class="fa-brands fa-whatsapp"></i>
-        </div>
-
+      <!--
+      <div class="social side">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+    
+      <div class="social sticky-bottom">
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>-->
     </div>
 
     <script>
-        let onSlide = false;
+      let onSlide = false;
 
-window.addEventListener("load", () => {
-   autoSlide();
+      window.addEventListener("load", () => {
+        autoSlide();
 
-   const dots = document.querySelectorAll(".carousel_dot");
-   for (let i = 0; i < dots.length; i++) {
-      dots[i].addEventListener("click", () => slide(i));
-   }
-
-   const buttonPrev = document.querySelector(".carousel_button__prev");
-   const buttonNext = document.querySelector(".carousel_button__next");
-   buttonPrev.addEventListener("click", () => slide(getItemActiveIndex() - 1));
-   buttonNext.addEventListener("click", () => slide(getItemActiveIndex() + 1));
-
-   })
-
-    function autoSlide() {
-    setInterval(() => {
-        slide(getItemActiveIndex() + 1);
-    }, 3000); // slide speed = 3s
-    }
-
-    function slide(toIndex) {
-    if (onSlide)
-        return;
-    onSlide = true;
-
-    const itemsArray = Array.from(document.querySelectorAll(".carousel_item"));
-    const itemActive = document.querySelector(".carousel_item__active");
-    const itemActiveIndex = itemsArray.indexOf(itemActive);
-    let newItemActive = null;
-
-    if (toIndex > itemActiveIndex) {
-        // check if toIndex exceeds the number of carousel items
-        if (toIndex >= itemsArray.length) {
-            toIndex = 0;
+        const dots = document.querySelectorAll(".carousel_dot");
+        for (let i = 0; i < dots.length; i++) {
+          dots[i].addEventListener("click", () => slide(i));
         }
 
-        newItemActive = itemsArray[toIndex];
+        const buttonPrev = document.querySelector(".carousel_button__prev");
+        const buttonNext = document.querySelector(".carousel_button__next");
+        buttonPrev.addEventListener("click", () =>
+          slide(getItemActiveIndex() - 1)
+        );
+        buttonNext.addEventListener("click", () =>
+          slide(getItemActiveIndex() + 1)
+        );
+      });
 
-        // start transition
-        newItemActive.classList.add("carousel_item__pos_next");
-        setTimeout(() => {
+      function autoSlide() {
+        setInterval(() => {
+          slide(getItemActiveIndex() + 1);
+        }, 3000); // slide speed = 3s
+      }
+
+      function slide(toIndex) {
+        if (onSlide) return;
+        onSlide = true;
+
+        const itemsArray = Array.from(
+          document.querySelectorAll(".carousel_item")
+        );
+        const itemActive = document.querySelector(".carousel_item__active");
+        const itemActiveIndex = itemsArray.indexOf(itemActive);
+        let newItemActive = null;
+
+        if (toIndex > itemActiveIndex) {
+          // check if toIndex exceeds the number of carousel items
+          if (toIndex >= itemsArray.length) {
+            toIndex = 0;
+          }
+
+          newItemActive = itemsArray[toIndex];
+
+          // start transition
+          newItemActive.classList.add("carousel_item__pos_next");
+          setTimeout(() => {
             newItemActive.classList.add("carousel_item__next");
             itemActive.classList.add("carousel_item__next");
-        }, 20);
-    } else {
-        // check if toIndex exceeds the number of carousel items
-        if (toIndex < 0) {
+          }, 20);
+        } else {
+          // check if toIndex exceeds the number of carousel items
+          if (toIndex < 0) {
             toIndex = itemsArray.length - 1;
-        }
+          }
 
-        newItemActive = itemsArray[toIndex];
+          newItemActive = itemsArray[toIndex];
 
-        // start transition
-        newItemActive.classList.add("carousel_item__pos_prev");
-        setTimeout(() => {
+          // start transition
+          newItemActive.classList.add("carousel_item__pos_prev");
+          setTimeout(() => {
             newItemActive.classList.add("carousel_item__prev");
             itemActive.classList.add("carousel_item__prev");
-        }, 20);
-    }
-
-    // remove all transition class and switch active class
-    newItemActive.addEventListener("transitionend", () => {
-        itemActive.className = "carousel_item";
-        newItemActive.className = "carousel_item carousel_item__active";
-        onSlide = false;
-    }, {
-        once: true
-    });
-
-    slideIndicator(toIndex);
-    }
-
-    function getItemActiveIndex() {
-    const itemsArray = Array.from(document.querySelectorAll(".carousel_item"));
-    const itemActive = document.querySelector(".carousel_item__active");
-    const itemActiveIndex = itemsArray.indexOf(itemActive);
-    return itemActiveIndex;
-    }
-
-    function slideIndicator(toIndex) {
-    const dots = document.querySelectorAll(".carousel_dot");
-    const dotActive = document.querySelector(".carousel_dot__active");
-    const newDotActive = dots[toIndex];
-
-    dotActive.classList.remove("carousel_dot__active");
-    newDotActive.classList.add("carousel_dot__active");
-    }
-    function toggleMenu() {
-        console.log("nav-flex-container 2222")
-        var navs = document.querySelectorAll(".nav-flex-container");
-        console.log("nav-flex-container 2222",navs)
-        if (navs[1].classList.contains("grow-ani")) {
-            navs[1].classList.remove("grow-ani")
-        } else {
-            navs[1].classList.add("grow-ani")
+          }, 20);
         }
-        
-    }
+
+        // remove all transition class and switch active class
+        newItemActive.addEventListener(
+          "transitionend",
+          () => {
+            itemActive.className = "carousel_item";
+            newItemActive.className = "carousel_item carousel_item__active";
+            onSlide = false;
+          },
+          {
+            once: true,
+          }
+        );
+
+        slideIndicator(toIndex);
+      }
+
+      function getItemActiveIndex() {
+        const itemsArray = Array.from(
+          document.querySelectorAll(".carousel_item")
+        );
+        const itemActive = document.querySelector(".carousel_item__active");
+        const itemActiveIndex = itemsArray.indexOf(itemActive);
+        return itemActiveIndex;
+      }
+
+      function slideIndicator(toIndex) {
+        const dots = document.querySelectorAll(".carousel_dot");
+        const dotActive = document.querySelector(".carousel_dot__active");
+        const newDotActive = dots[toIndex];
+
+        dotActive.classList.remove("carousel_dot__active");
+        newDotActive.classList.add("carousel_dot__active");
+      }
+      function toggleMenu() {
+        console.log("flex-container 2222");
+        var navs = document.querySelectorAll("nav .flex-container");
+        console.log("flex-container 2222", navs);
+        if (navs[1].classList.contains("grow-ani")) {
+          navs[1].classList.remove("grow-ani");
+        } else {
+          navs[1].classList.add("grow-ani");
+        }
+      }
     </script>
-</body>
+  </body>
 </html>
