@@ -56,7 +56,7 @@
         right: 0;
         z-index: 2;
       }
-      nav a {
+      nav .fw a {
         padding: 16px 32px;
         color: white;
         text-decoration: none;
@@ -64,7 +64,7 @@
         display: inline-block;
         width: 100%;
       }
-      nav a:hover {
+      nav .fw a:hover {
         background: rgba(236, 240, 241, 1);
         color: black;
         border-radius: 8px;
@@ -134,6 +134,11 @@
       section {
         min-height: 100vh;
         /*min-height: calc(~"100vh - 190px"); */
+      }
+
+      .phone {
+        text-decoration: none;
+        color: white;
       }
 
       /* FOOTER START */
@@ -239,6 +244,12 @@
         width: 300px;
         /*box-shadow: 2px 2px 3px 3px black;*/
       }
+      .pt-5 {
+        padding-top: 5px;
+      }
+      .pb-3 {
+        padding-bottom: 3px;
+      }
 
       @media screen and (min-width: 768px) {
         .fa-bars {
@@ -325,11 +336,18 @@
     <nav class="nav-main-container">
       <div class="flex-container">
         <div class="logo">
-          <img src="images/logo.png" height="48px" width="48px" />
+          <a class="phone" href="tel:+917200387876"
+            ><img src="images/logo.png" height="48px" width="48px"
+          /></a>
         </div>
         <div class="name">
-          <h2 class="company-name">HEAVEN INTERIORS &nbsp;&nbsp;</h2>
-          <h2 class="phone-num">+91-7200387876</h2>
+          <h2 class="company-name">
+            <a class="phone" href="tel:+917200387876">HEAVEN INTERIORS</a>
+            &nbsp;&nbsp;
+          </h2>
+          <h2 class="phone-num">
+            <a class="phone" href="tel:+917200387876">+91-7200387876</a>
+          </h2>
         </div>
       </div>
       <div class="flex-container">
@@ -342,38 +360,52 @@
 
     <section class="product-flex">
       <div class="content">
-        <h1 class="product-name">PRODUCT NAME</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
-          architecto doloribus neque commodi nesciunt voluptates dolor
-          repudiandae a numquam ipsum?
+        <h1 class="product-name">SLEEK OPENABLE TYPE</h1>
+        <p class="pb-3">
+          Outer frame - 20MM width thickness:9MM, Corner - 45 degree corner,
+          Connector - MCB Connector
         </p>
+        <p class="pt-5 pb-3">
+          Hinges - (A+B) PVC hinges, Stopper - PVC, Handle - PVC
+        </p>
+        <p class="pt-5 pb-3">Rubber - EPOM 2MM spine</p>
+        <p class="pt-5 pb-3">Frame Colour - Dark brown,Honey gold, White</p>
+        <p class="pt-5 pb-3">Mesh used - Fiber,Aluminium,SS,Black Coated SS</p>
       </div>
       <div class="product-image"><img src="./images/11.jpg" /></div>
     </section>
 
     <section class="product-flex">
       <div class="content">
-        <h1 class="product-name">PRODUCT NAME</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
-          architecto doloribus neque commodi nesciunt voluptates dolor
-          repudiandae a numquam ipsum?
+        <h1 class="product-name">MAGNETIC OPENABLE TYPE</h1>
+        <p class="pb-3">
+          Easy to clean and suits for daily use. High quality channel with epoxy
+          coated.
         </p>
+        <p class="pt-5 pb-3">
+          Aluminium hinges and handle used.Magnetic strip used to lock the
+          frame.
+        </p>
+        <p class="pt-5 pb-3">Weather strip used to cover the gapes.</p>
       </div>
       <div class="product-image"><img src="./images/12.jpg" /></div>
     </section>
 
     <section class="product-flex">
       <div class="content">
-        <h1 class="product-name">PRODUCT NAME</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
-          architecto doloribus neque commodi nesciunt voluptates dolor
-          repudiandae a numquam ipsum?
+        <h1 class="product-name">BARRIER FREE</h1>
+        <p class="pb-3">
+          Barrier free or collapsible mosquito nets is a unique net system and a
+          great solution for huge openings.It gives wider opening to allow
+          sunlight and fresh air to pass but mesh closed enough to keep the
+          insect out. This screens work on spring less technology with PVC based
+          chain along with the runner in the floor.
+        </p>
+        <p class="pt-5 pb-3">
+          Trackless retractable will not stumble or trip children or
+          adults(saftey). It has the option to use a single shutter openings. It
+          can be suggested to doors, balconies, french doors with large
+          openings. This mesh pleated ployster water proffing mesh.
         </p>
       </div>
       <div class="product-image"><img src="./images/14.jpg" /></div>
@@ -381,25 +413,32 @@
 
     <section class="product-flex">
       <div class="content">
-        <h1 class="product-name">PRODUCT NAME</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
-          architecto doloribus neque commodi nesciunt voluptates dolor
-          repudiandae a numquam ipsum?
+        <h1 class="product-name">ROLLER-SHUTTER SYSTEM</h1>
+        <p class="pb-3">
+          Top panel - 50MM, Side panel - 37MM, Bottom panel - 40MM
         </p>
+        <p class="pt-5 pb-3">Thickness - 17MM, Mesh size - 18X16 accessories</p>
+        <p class="pt-5 pb-3">
+          Fiber componets & Metal spring felt - 4MM/6MM weather strips
+        </p>
+        <p class="pt-5 pb-3">Frame Colour - Dark Brown, Golden Brown & White</p>
+        <p class="pt-5 pb-3">Mesh colour - Gray/Black(Phifer)</p>
       </div>
       <div class="product-image"><img src="./images/15.jpg" /></div>
     </section>
 
     <section class="product-flex">
       <div class="content">
-        <h1 class="product-name">PRODUCT NAME</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
-          architecto doloribus neque commodi nesciunt voluptates dolor
-          repudiandae a numquam ipsum?
+        <h1 class="product-name">PLEATED TYPE SYSTEM</h1>
+        <p class="pb-3">
+          Outer panel - 30MM, Sliding panel - 40MM, Bottom pan accessories - PVC
+          components - 40MM
+        </p>
+        <p class="pt-5 pb-3">
+          Frame colour - Ivory, Black, dark brown, Honey gold, White
+        </p>
+        <p class="pt-5 pb-3">
+          Mesh used - Fiber foldable colour - Gray, Black, Pink, Blue, Brown
         </p>
       </div>
       <div class="product-image"><img src="./images/16.jpg" /></div>
@@ -407,12 +446,11 @@
 
     <section class="product-flex">
       <div class="content">
-        <h1 class="product-name">PRODUCT NAME</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
-          architecto doloribus neque commodi nesciunt voluptates dolor
-          repudiandae a numquam ipsum?
+        <h1 class="product-name">SLIDING MOSQUITO NETS</h1>
+        <p class="pb-3">
+          The rectangle two track aluminium system are double cassette doors and
+          balconies. We use an exclusively bottom rolling wheel system for the
+          smooth functioning of sliding screen doors, balconies and windows.
         </p>
       </div>
       <div class="product-image"><img src="./images/17.jpg" /></div>
@@ -420,12 +458,21 @@
 
     <section class="product-flex">
       <div class="content">
-        <h1 class="product-name">PRODUCT NAME</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          fuga saepe nemo libero molestiae illum accusamus eos quibusdam, fugiat
-          architecto doloribus neque commodi nesciunt voluptates dolor
-          repudiandae a numquam ipsum?
+        <h1 class="product-name">DOOR OPENABLE TYPE</h1>
+        <p class="pb-3">
+          Outer panel - 45MM width, Middle panel - 35MM width, Kick plate - 70MM
+          width
+        </p>
+        <p class="pt-5 pb-3">
+          Door thickness - 20MM, Hinges - Metal created (A+B) attachable handle
+        </p>
+        <p class="pt-5 pb-3">
+          PVC two side handle felt - 4MM weather strips, Rubber - 5.5MM EPOM
+          spine
+        </p>
+        <p class="pt-5 pb-3">
+          Frame colours - Dark brown, Honey gold, White, Mesh used - 5 Fiber,
+          Aluminium, Stainless steel, Black coated SS
         </p>
       </div>
       <div class="product-image"><img src="./images/18.jpg" /></div>
@@ -440,7 +487,9 @@
             <h2>Dr.Ambedkar puratchi nagar,</h2>
             <h2>Perungudi,</h2>
             <h2>Chennai - 600096</h2>
-            <h2>+91-7200387876</h2>
+            <h2>
+              <a class="phone" href="tel:+917200387876"> +91-7200387876 </a>
+            </h2>
           </div>
         </div>
         <div class="social footer-item-2">
