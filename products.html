@@ -131,6 +131,27 @@
         }
       }
 
+      @keyframes circle-animation {
+        from {
+          padding: 6px;
+        }
+        to {
+          padding: 8px;
+        }
+      }
+
+      @keyframes glow {
+        0% {
+          box-shadow: 0px 0px 5px 5px rgba(22, 160, 133, 0.33);
+        }
+        50% {
+          box-shadow: 0px 0px 8px 8px rgba(22, 160, 133, 0.66);
+        }
+        100% {
+          box-shadow: 0px 0px 11px 11px rgba(22, 160, 133, 1);
+        }
+      }
+
       section {
         min-height: 100vh;
         /*min-height: calc(~"100vh - 190px"); */
@@ -206,15 +227,12 @@
         background: rgba(44, 62, 80, 1);
         position: fixed;
         bottom: 35px;
-        right: 35px;
+        right: 55px;
         animation: glow 0.8s infinite;
       }
       .sticky-bottom i {
-        font-size: 42px;
-        margin-left: 15px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        padding: 6px;
+        font-size: 30px;
+        margin: 5px;
         animation: circle-animation 0.8s linear infinite alternate;
       }
       section:nth-child(odd) {
@@ -328,6 +346,9 @@
         strong {
           font-size: 32px;
           font-weight: 800;
+        }
+        .sticky-bottom i {
+          font-size: 38px;
         }
       }
     </style>
@@ -497,8 +518,15 @@
           <i class="fa-brands fa-twitter"></i>
           <i class="fa-brands fa-instagram"></i>
           <i class="fa-brands fa-youtube"></i>
-          <i class="fa-brands fa-whatsapp"></i>
+          <a href="https://api.whatsapp.com/send?phone=917200387876">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
         </div>
+      </div>
+      <div class="social sticky-bottom flex-container v-center h-center">
+        <a href="https://api.whatsapp.com/send?phone=917200387876">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
       </div>
     </footer>
     <script>
