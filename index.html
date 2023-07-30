@@ -35,6 +35,9 @@
         line-height: 1.32;
         padding: 32px;
       }
+      p.first-letter::first-letter {
+        font-size: 42px;
+      }
       h1 {
         font-size: 30px;
         letter-spacing: 1.6px;
@@ -385,6 +388,10 @@
         padding-top: 10px;
         padding-right: 30px;
         padding-bottom: 10px;
+        transition: all 0.2s;
+      }
+      .fa-brands:hover {
+        transform: scale(1.2);
       }
       .fa-facebook {
         color: #4267b2;
@@ -413,13 +420,22 @@
         background: rgba(44, 62, 80, 1);
         position: fixed;
         bottom: 85px;
-        right: 55px;
+        right: 75px;
         animation: glow 0.8s infinite;
       }
       .sticky-bottom i {
         font-size: 30px;
         margin: 5px;
         animation: circle-animation 0.8s linear infinite alternate;
+      }
+      .pb-1 {
+        padding-bottom: 1px !important;
+      }
+      .pb-5 {
+        padding-bottom: 5px !important;
+      }
+      .pb-10 {
+        padding-bottom: 10px;
       }
       .pb-15 {
         padding-bottom: 15px;
@@ -502,6 +518,9 @@
           line-height: 1.32;
           padding: 32px;
         }
+        p.first-letter::first-letter {
+          font-size: 48px;
+        }
         h1 {
           font-size: 36px;
           letter-spacing: 1.6px;
@@ -558,13 +577,13 @@
         <div class="carousel">
           <div class="carousel_inner">
             <div class="carousel_item carousel_item__active">
-              <img src="./images/1.jpeg" alt="" class="carousel_img" />
+              <img src="./images/b1.jpg" alt="" class="carousel_img" />
             </div>
             <div class="carousel_item">
-              <img src="images/2.jpeg" alt="" class="carousel_img" />
+              <img src="./images/b2.jpg" alt="" class="carousel_img" />
             </div>
             <div class="carousel_item">
-              <img src="images/3.jpeg" alt="" class="carousel_img" />
+              <img src="./images/b3.jpg" alt="" class="carousel_img" />
             </div>
           </div>
 
@@ -586,14 +605,14 @@
       </div>
 
       <section id="about-us" class="section-1">
-        <p class="pb-15 pt-30">
+        <p class="first-letter pb-1 pt-30">
           Heaven interiors makes your space elegant and alluring with our
           mosquito screens and blinds With great designs and promising quality
           we serve you our best of all Visit us on once and you'll beleive us
           again.
         </p>
 
-        <p class="pb-15">
+        <p class="pb-1">
           Heaven Mosquito screen is the trusted name in the manufacturing and
           supply of mosquito net doors and windows. With a state-of-the-art
           manufacturing facility and committed workforce, we produce truly
@@ -716,11 +735,21 @@
             </div>
           </div>
           <div class="social footer-item-2">
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-youtube"></i>
-            <i class="fa-brands fa-whatsapp"></i>
+            <a
+              href="https://www.facebook.com/people/Heaven-mosquito-screens-and-blinds/100085956765494/"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a
+              href="https://instagram.com/heaven_interiors__?igshid=MzNlNGNkZWQ4Mg=="
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="https://www.youtube.com/@heaveninteriors8688"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+            <a href="https://api.whatsapp.com/send?phone=917200387876">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
           </div>
         </div>
         <div class="social sticky-bottom flex-container v-center h-center">
