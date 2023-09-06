@@ -138,6 +138,87 @@
         padding-top: 30px;
       }
 
+      h1.form-enquiry {
+            letter-spacing: 2.8px;
+            text-align: center;
+            color:#fff;
+            text-transform: uppercase;
+            padding:24px;
+        }
+        form {
+            width:600px;
+            background: rgba(36, 30, 78,0.82);
+            border-radius: 12px;
+            margin:24px;
+        }
+        .control {
+            margin:24px;
+        }
+        label {
+            font-size:32px;         
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color:#fff;
+            width:100%;    
+        }
+        div.label {
+            margin-bottom: 15px;
+        }
+        input[type="text"],textarea {
+            width:100%;
+            padding:24px;
+            height:45px;
+            outline:none;
+            border:none;
+            border-radius:12px;
+            font-size:24px;
+        }
+        textarea {
+           height:120px;
+        }
+        .btn-container {
+            text-align: center;
+            margin:52px 52px 80px 52px;
+        }
+        .btn {
+            outline:none;
+            border:none;
+            text-decoration: none;
+            font-size: 32px;
+            color:#fff;
+            padding: 20px 140px;
+            background: rgba(105, 175, 75,0.95);
+            letter-spacing: 5px;
+            transition: all 0.3s;
+            box-shadow: 3px 3px 8px 8px rgba(105, 175, 75,0.5);  
+        }
+        .btn:hover {
+          transform: scaleX(1.01);
+          box-shadow: 5px 5px 12px 12px rgba(105, 175, 75,0.7);  
+        }
+        .toast {
+          background: rgba(105, 175, 75,0.95);
+          position:absolute;
+          top:50%;
+          left:50%;
+          transform: translate(-50%,-50%);
+          z-index:10;
+          box-shadow: 3px 3px 8px 8px rgba(0, 0, 0, 0.5);
+          opacity:0;
+         
+        }
+        .appear {
+          animation: appear-ani 3s;
+        }
+        @keyframes appear-ani {
+        from {
+          opacity:0;
+        }
+        to {
+          opacity:1;
+        }
+      }
+
       section {
         min-height: 100vh;
         /*min-height: calc(~"100vh - 190px"); */
@@ -147,8 +228,17 @@
         background: #57606f;
         color: white;
       }
+      .section-0 {
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        min-height:100vh;
+        background: rgba(36, 30, 78,0.42);
+        color: black;
+        position: relative;
+      }
       .section-2 {
-        background: #ffffff;
+        background: #57606f;
         color: white;
       }
       .section-3 {
@@ -570,6 +660,9 @@
           <div class="fw">
             <a href="#about-us">ABOUT US</a>
           </div>
+          <div class="fw">
+            <a href="#contact-us">CONTACT US</a>
+          </div>
         </div>
         <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
       </nav>
@@ -633,6 +726,53 @@
           clients. All these products are made available by us in various
           specifications, so as to meet the exact need of the customers.
         </p>
+      </section>
+
+      <section id="contact-us" class="section-0">
+        <div class="toast">
+          <h1 class="form-enquiry">Message Sent</h1>
+        </div>
+        <form >
+          <h1 class="form-enquiry">Enquiry</h1>
+          <div class="control">
+              <div class="label">
+                  <label>NAME</label>
+              </div>
+             <div class="textbox">
+                 <input id="name" type="text" class="text-box"/>
+             </div>
+          </div>
+
+          <div class="control">
+              <div class="label">
+                  <label>PHONE</label>
+              </div>
+             <div class="textbox">
+                 <input id="phone" type="text" class="text-box"/>
+             </div>
+          </div>
+
+          <div class="control">
+              <div class="label">
+                  <label>EMAIL</label>
+              </div>
+             <div class="textbox">
+                 <input id="email" type="text" class="text-box"/>
+             </div>
+          </div>
+
+          <div class="control">
+              <div class="label">
+                  <label>MESSAGE</label>
+              </div>
+             <div class="textarea">
+                 <textarea name="textarea" id="textarea"></textarea>
+             </div>
+          </div>
+          <div class="btn-container">
+               <a class="btn" onclick="submit(); return false;">SUBMIT</a> 
+          </div>
+      </form>
       </section>
 
       <section class="section-2 flex-container v-center h-center">
@@ -884,6 +1024,45 @@
           navs[1].classList.add("grow-ani");
         }
       }
+
+      function submit() {
+            console.log('submit clicked')
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("textarea").value;
+            name = btoa(name);
+            phone = btoa(phone);
+            email = btoa(email);
+            message = btoa(message);  
+            var myHeaders = new Headers();
+            var key = +new Date-600000000000
+            var auth = this.crypto.randomUUID(); 
+            myHeaders.append("Authorization", "Bearer "+auth);
+            myHeaders.append("key-validation", key);
+            myHeaders.append("Content-Type", "application/json");
+
+            var dt = {
+            "cn": name,
+            "ce": email,
+            "cp": phone,
+            "cm": message
+            }
+            var raw = JSON.stringify(dt);
+            console.log('RAW BODY:',raw)
+            var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+            };
+            
+            fetch("https://3p63h0vck0.execute-api.ap-south-1.amazonaws.com/default/sendmail", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+            
+        }
     </script>
   </body>
 </html>
