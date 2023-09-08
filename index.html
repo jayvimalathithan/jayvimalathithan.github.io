@@ -183,7 +183,7 @@
       text-align: center;
       color: #fff;
       text-transform: uppercase;
-      padding: 24px;
+      padding: 18px;
     }
 
     form {
@@ -230,23 +230,21 @@
     }
 
     .btn {
-      outline: none;
-      border: none;
+      display:inline-block;
       text-decoration: none;
       font-size: 18px;
       color: #fff;
       padding: 20px 51.2px;
       background: rgba(105, 175, 75, 0.95);
       letter-spacing: 5px;
-      transition: all 0.3s;
-      box-shadow: 0px 0px 8px 8px rgba(105, 175, 75, 0.5);
+      /* box-shadow: 0px 0px 8px 8px rgba(105, 175, 75, 0.5); */
       border-radius: 100px;
-      transition: box-shadow 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .btn:hover {
-      transform: scaleX(1.01);
-      box-shadow: 0px 0px 12px 12px rgba(105, 175, 75, 0.7);
+      transform: scale(0.9);
+      box-shadow: 0px 0px 12px 12px rgba(105, 175, 75, 0.7); 
     }
 
     .toast {
@@ -663,6 +661,10 @@
     }
 
     @media screen and (min-width: 768px) {
+
+      h1.form-enquiry {
+        padding: 24px;
+      }
 
       form {
         width: 600px;
