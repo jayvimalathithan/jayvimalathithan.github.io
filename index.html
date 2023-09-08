@@ -1240,9 +1240,8 @@
       fetch("https://3p63h0vck0.execute-api.ap-south-1.amazonaws.com/default/sendmail", requestOptions)
         .then(response => response.text())
         .then(result => {
-          console.log('RESULT:',result)
-          let statusCode = result['statusCode']
-          if (statusCode==200) {
+          let data = JSON.parse(result)
+          if (data['statusCode']==200) {
             document.querySelector(".toast").classList.add("appear");
             setTimeout(()=>{document.querySelector(".toast").classList.remove("appear");},3000)
           }
