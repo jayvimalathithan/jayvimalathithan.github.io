@@ -1,634 +1,723 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Heaven Interiors</title>
-    <link rel="icon" href="images/logo.jpeg" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Rajdhani", sans-serif;
-      }
-      p {
-        font-size: 20px;
-        letter-spacing: 1.5px;
-        line-height: 1.32;
-        padding: 32px;
-      }
-      h1 {
-        font-size: 30px;
-        letter-spacing: 1.6px;
-        line-height: 1.4;
-      }
-      h2 {
-        letter-spacing: 1.6px;
-        line-height: 1.4;
-      }
-      strong {
-        font-size: 28px;
-        font-weight: 800;
-      }
-      nav {
-        background-color: rgba(44, 62, 80, 1);
-        color: white;
-        position: sticky;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 2;
-      }
-      nav .fw a {
-        padding: 16px 32px;
-        color: white;
-        text-decoration: none;
-        font-size: 22px;
-        display: inline-block;
-        width: 100%;
-      }
-      nav .fw a:hover {
-        background: rgba(236, 240, 241, 1);
-        color: black;
-        border-radius: 8px;
-      }
-      nav .fw {
-        text-align: center;
-        border-bottom: 0.25px solid white;
-      }
-      .flex-container {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      .column {
-        flex-direction: column;
-      }
-      .row {
-        flex-direction: row;
-      }
-      .v-center {
-        align-items: center !important;
-      }
-      .h-center {
-        justify-content: center !important;
-      }
-      nav .flex-container:nth-child(2) {
-        flex-direction: column;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heaven Interiors</title>
+  <link rel="icon" href="images/logo.jpeg" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Rajdhani", sans-serif;
+    }
+
+    p {
+      font-size: 20px;
+      letter-spacing: 1.5px;
+      line-height: 1.32;
+      padding: 32px;
+    }
+
+    h1 {
+      font-size: 30px;
+      letter-spacing: 1.6px;
+      line-height: 1.4;
+    }
+
+    h2 {
+      letter-spacing: 1.6px;
+      line-height: 1.4;
+    }
+
+    strong {
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+
+    nav {
+      position: relative;
+      background: #777;
+      color: white;
+      display: grid;
+      grid-template-columns: 30px auto;
+      column-gap: 10px;
+    }
+
+    .logo,
+    .logo-img {
+      border-radius: 50%;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .menu {
+      grid-column: 1/3;
+      text-align: center;
+      height: 0;
+      display: none;
+    }
+
+    .logo,
+    .title,
+    .menu,
+    .fa-bars {
+      margin: 20px 5px;
+    }
+
+    section:target {
+      padding-top: 80px;
+    }
+
+    nav {
+      background-color: rgba(44, 62, 80, 1);
+      color: white;
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+    }
+
+    .fa-bars {
+      display: inline;
+      position: absolute;
+      top: 15px;
+      right: 2px;
+      color: white;
+      font-size: 28px;
+      margin-right: 10px;
+      z-index: 10;
+    }
+
+    .menu a {
+      display: inline-block;
+      padding: 16px 32px;
+      color: white;
+      text-decoration: none;
+      font-size: 22px;
+      width: 100%;
+    }
+
+    .menu a:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .menu>div:first-child {
+      margin-top: 10px;
+    }
+
+    .menu>div:last-child {
+      margin-bottom: 10px;
+    }
+
+    .grow-ani {
+      animation: grow 0.3s ease-in-out forwards;
+      display: block;
+    }
+
+    @keyframes grow {
+      from {
         height: 0;
         visibility: hidden;
       }
 
-      .flex-container:nth-child(2) .fw:nth-child(3) {
-        margin-bottom: 8px;
+      to {
+        height: 250px;
+        visibility: visible;
       }
-      .logo,
-      .name {
-        padding: 12px;
-      }
-      .name {
-        padding-left: 24px;
-      }
-      .fa-bars {
-        display: inline;
-        position: absolute;
-        top: 15px;
-        right: 2px;
-        color: white;
-        font-size: 28px;
-        margin-right: 10px;
-        z-index: 10;
-      }
-      .grow-ani {
-        animation: grow 0.1s linear;
-        animation-fill-mode: forwards;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex-direction: column;
+    }
+
+    .row {
+      flex-direction: row;
+    }
+
+    .v-center {
+      align-items: center !important;
+    }
+
+    .h-center {
+      justify-content: center !important;
+    }
+
+    @keyframes circle-animation {
+      from {
+        padding: 6px;
       }
 
-      @keyframes grow {
-        from {
-          height: 0;
-          visibility: hidden;
-        }
-        to {
-          height: 190px;
-          visibility: visible;
-        }
+      to {
+        padding: 8px;
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0px 0px 5px 5px rgba(22, 160, 133, 0.33);
       }
 
-      @keyframes circle-animation {
-        from {
-          padding: 6px;
-        }
-        to {
-          padding: 8px;
-        }
+      50% {
+        box-shadow: 0px 0px 8px 8px rgba(22, 160, 133, 0.66);
       }
 
-      @keyframes glow {
-        0% {
-          box-shadow: 0px 0px 5px 5px rgba(22, 160, 133, 0.33);
-        }
-        50% {
-          box-shadow: 0px 0px 8px 8px rgba(22, 160, 133, 0.66);
-        }
-        100% {
-          box-shadow: 0px 0px 11px 11px rgba(22, 160, 133, 1);
-        }
+      100% {
+        box-shadow: 0px 0px 11px 11px rgba(22, 160, 133, 1);
+      }
+    }
+
+    section {
+      min-height: 100vh;
+      /*min-height: calc(~"100vh - 190px"); */
+    }
+
+    .phone {
+      text-decoration: none;
+      color: white;
+    }
+
+    /* FOOTER START */
+    .footer {
+      background-color: #2c3e50;
+      color: white;
+    }
+
+    .footer-item-1 {
+      padding-left: 30px;
+      padding-top: 30px;
+    }
+
+    .footer-item-2 {
+      padding-left: 30px;
+      padding-bottom: 20px;
+    }
+
+    .side {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      opacity: 1;
+    }
+
+    .side i {
+      padding: 15px;
+      border: 0.25px solid #34495e;
+      background: rgba(44, 62, 80, 0.95);
+      transition: all 0.33;
+    }
+
+    .side i:hover {
+      background: rgb(167, 189, 210);
+    }
+
+    .fa-brands {
+      font-size: 32px;
+      padding-top: 10px;
+      padding-right: 30px;
+      padding-bottom: 10px;
+    }
+
+    .fa-brands:hover {
+      transform: scale(1.2);
+    }
+
+    .fa-facebook {
+      color: #4267b2;
+    }
+
+    .fa-twitter {
+      color: #1da1f2;
+    }
+
+    .fa-instagram {
+      color: #e1306c;
+    }
+
+    .fa-pinterest {
+      color: #e60023;
+    }
+
+    .fa-youtube {
+      color: #ff0000;
+    }
+
+    .fa-whatsapp {
+      color: #25d366;
+    }
+
+    .fa-star {
+      color: rgba(241, 196, 15, 1);
+      font-size: 32px;
+    }
+
+    .sticky-bottom {
+      border-radius: 50%;
+      background: rgba(44, 62, 80, 1);
+      position: fixed;
+      bottom: 85px;
+      right: 75px;
+      animation: glow 0.8s infinite;
+    }
+
+    .sticky-bottom i {
+      font-size: 30px;
+      margin: 5px;
+      animation: circle-animation 0.8s linear infinite alternate;
+    }
+
+    section:nth-child(odd) {
+      background: #f1f2f6;
+      color: black;
+    }
+
+    section:nth-child(even) {
+      background: #a4b0be;
+      color: black;
+    }
+
+    .product-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-name {
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .content {
+      flex: 2 1 0;
+    }
+
+    .product-image img {
+      flex: 1 1 0;
+      height: 300px;
+      width: 300px;
+      /*box-shadow: 2px 2px 3px 3px black;*/
+    }
+
+    .slide-right {
+      /* border: 5px solid white; */
+      animation: appear 5s;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
       }
 
-      section {
-        min-height: 100vh;
-        /*min-height: calc(~"100vh - 190px"); */
-      }
-
-      .phone {
-        text-decoration: none;
-        color: white;
-      }
-
-      /* FOOTER START */
-      .footer {
-        background-color: #2c3e50;
-        color: white;
-      }
-      .footer-item-1 {
-        padding-left: 30px;
-        padding-top: 30px;
-      }
-      .footer-item-2 {
-        padding-left: 30px;
-        padding-bottom: 20px;
-      }
-      .side {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
+      to {
         opacity: 1;
       }
+    }
 
-      .side i {
-        padding: 15px;
-        border: 0.25px solid #34495e;
-        background: rgba(44, 62, 80, 0.95);
-        transition: all 0.33;
+    .pt-5 {
+      padding-top: 5px;
+    }
+
+    .pb-3 {
+      padding-bottom: 3px;
+    }
+
+    @media screen and (min-width: 768px) {
+      nav .fw a {
+        padding: 16px 20px;
       }
-      .side i:hover {
-        background: rgb(167, 189, 210);
+
+      form {
+        width: 600px;
       }
-      .fa-brands {
-        font-size: 32px;
+
+      .fa-bars {
+        display: none;
+      }
+
+      .nav-main-container {
+        display: flex;
+      }
+
+      section:target {
         padding-top: 10px;
-        padding-right: 30px;
-        padding-bottom: 10px;
       }
-      .fa-brands:hover {
-        transform: scale(1.2);
+
+      nav {
+        display: grid;
+        grid-template-columns: 50px 250px 1fr;
       }
-      .fa-facebook {
-        color: #4267b2;
+
+      .menu {
+        grid-column: 3/4;
+        display: flex;
+        justify-content: flex-end;
+        gap: 5px;
+        margin-right: 20px;
+        transition: all 0.3s;
       }
-      .fa-twitter {
-        color: #1da1f2;
+
+      .fa-bars {
+        display: none;
       }
-      .fa-instagram {
-        color: #e1306c;
+
+      .menu>div:first-child {
+        margin-top: 0px;
       }
-      .fa-pinterest {
-        color: #e60023;
+
+      .menu>div:last-child {
+        margin-bottom: 0px;
       }
-      .fa-youtube {
-        color: #ff0000;
+
+      .relative-container {
+        position: relative;
       }
-      .fa-whatsapp {
-        color: #25d366;
+
+      .footer-item-1 {
+        padding-left: 100px;
+        padding-bottom: 30px;
       }
-      .fa-star {
-        color: rgba(241, 196, 15, 1);
-        font-size: 32px;
+
+      .footer-item-2 {
+        position: absolute;
+        right: 10px;
       }
-      .sticky-bottom {
-        border-radius: 50%;
-        background: rgba(44, 62, 80, 1);
-        position: fixed;
-        bottom: 85px;
-        right: 75px;
-        animation: glow 0.8s infinite;
+
+      iframe {
+        width: 800px;
+        height: 600px;
       }
-      .sticky-bottom i {
-        font-size: 30px;
-        margin: 5px;
-        animation: circle-animation 0.8s linear infinite alternate;
+
+      .product-image img {
+        margin-left: 35px;
+        margin-right: 35px;
+        height: 450px;
+        width: 450px;
       }
+
       section:nth-child(odd) {
-        background: #f1f2f6;
-        color: black;
+        display: flex;
+        flex-wrap: wrap;
+        background: rgba(52, 73, 94, 0.9);
+        color: white;
       }
+
       section:nth-child(even) {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
         background: #a4b0be;
         color: black;
       }
-      .product-flex {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-      }
-      .product-name {
-        text-align: center;
-        text-transform: uppercase;
-      }
-      .content {
-        flex: 2 1 0;
-      }
-      .product-image img {
-        flex: 1 1 0;
-        height: 300px;
-        width: 300px;
-        /*box-shadow: 2px 2px 3px 3px black;*/
+
+      p {
+        font-size: 28px;
+        letter-spacing: 1.5px;
+        line-height: 1.32;
+        padding: 32px;
       }
 
-      .slide-right {
-        /* border: 5px solid white; */
-        animation: appear 5s;
-      }
-      @keyframes appear {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
+      h1 {
+        font-size: 36px;
+        letter-spacing: 1.6px;
+        line-height: 1.4;
       }
 
-      .pt-5 {
-        padding-top: 5px;
-      }
-      .pb-3 {
-        padding-bottom: 3px;
+      h2 {
+        letter-spacing: 1.6px;
+        line-height: 1.4;
       }
 
-      @media screen and (min-width: 768px) {
-        nav .fw a {
-          padding: 16px 20px;
-        }
-        form {
-          width:600px;
-        }
-        .fa-bars {
-          display: none;
-        }
-        .nav-main-container {
-          display: flex;
-        }
-
-        nav .flex-container:nth-child(2) {
-          margin-top: 15px;
-          flex-direction: row;
-          height: initial;
-          visibility: visible;
-          position: absolute;
-          top: 0;
-          right: 10px;
-        }
-        nav .fw {
-          border-bottom: none;
-        }
-        .flex-container:nth-child(2) .fw:nth-child(3) {
-          margin-bottom: 0px;
-        }
-
-        .relative-container {
-          position: relative;
-        }
-        .footer-item-1 {
-          padding-left: 100px;
-          padding-bottom: 30px;
-        }
-        .footer-item-2 {
-          position: absolute;
-          right: 10px;
-        }
-        iframe {
-          width: 800px;
-          height: 600px;
-        }
-        .product-image img {
-          margin-left: 35px;
-          margin-right: 35px;
-          height: 450px;
-          width: 450px;
-        }
-        section:nth-child(odd) {
-          display: flex;
-          flex-wrap: wrap;
-          background: rgba(52, 73, 94, 0.9);
-          color: white;
-        }
-
-        section:nth-child(even) {
-          display: flex;
-          flex-wrap: wrap;
-          flex-direction: row-reverse;
-          background: #a4b0be;
-          color: black;
-        }
-        p {
-          font-size: 28px;
-          letter-spacing: 1.5px;
-          line-height: 1.32;
-          padding: 32px;
-        }
-        h1 {
-          font-size: 36px;
-          letter-spacing: 1.6px;
-          line-height: 1.4;
-        }
-        h2 {
-          letter-spacing: 1.6px;
-          line-height: 1.4;
-        }
-        strong {
-          font-size: 32px;
-          font-weight: 800;
-        }
-        .sticky-bottom i {
-          font-size: 38px;
-        }
+      strong {
+        font-size: 32px;
+        font-weight: 800;
       }
-    </style>
-  </head>
-  <body>
-    <nav class="nav-main-container">
-      <div class="flex-container">
-        <div class="logo">
-          <a class="phone" href="tel:+917200387876"
-            ><img src="images/logo.png" height="48px" width="48px"
-          /></a>
-        </div>
-        <div class="name">
-          <h2 class="company-name">
-            <a class="phone" href="tel:+917200387876">HEAVEN INTERIORS</a>
-            &nbsp;&nbsp;
+
+      .sticky-bottom i {
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+
+    <div class="logo">
+      <a class="phone" href="tel:+917200387876">
+        <img class="logo-img" src="./images/logo.jpeg" height="48px" width="48px" />
+      </a>
+    </div>
+    <div class="title">
+      <h2 class="company-name">
+        <a class="phone" href="tel:+917200387876">HEAVEN INTERIORS</a>
+        &nbsp;&nbsp;
+      </h2>
+      <h2 class="phone-num">
+        <a class="phone" href="tel:+917200387876">+91-7200387876</a>
+      </h2>
+    </div>
+
+    <div class="menu">
+      <div class="fw"><a href="./index.html" onclick="hideMenu()">HOME</a></div>
+      <div class="fw"><a href="./products.html" onclick="hideMenu()">PRODUCTS</a></div>
+      <div class="fw"><a href="./index.html#about-us" onclick="hideMenu()">ABOUT US</a></div>
+      <div class="fw"><a href="./index.html#contact-us" onclick="hideMenu()">CONTACT US</a></div>
+    </div>
+    <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+
+  </nav>
+
+  <section class="product-flex">
+    <div class="content">
+      <h1 class="product-name">SLEEK OPENABLE TYPE</h1>
+      <p class="pb-3">
+        Outer frame - 20MM width thickness:9MM, Corner - 45 degree corner,
+        Connector - MCB Connector
+      </p>
+      <p class="pt-5 pb-3">
+        Hinges - (A+B) PVC hinges, Stopper - PVC, Handle - PVC
+      </p>
+      <p class="pt-5 pb-3">Rubber - EPOM 2MM spine</p>
+      <p class="pt-5 pb-3">Frame Colour - Dark brown,Honey gold, White</p>
+      <p class="pt-5 pb-3">Mesh used - Fiber,Aluminium,SS,Black Coated SS</p>
+    </div>
+    <div class="product-image"><img src="./images/11.jpg" /></div>
+  </section>
+
+  <section class="product-flex">
+    <div class="content">
+      <h1 class="product-name">MAGNETIC OPENABLE TYPE</h1>
+      <p class="pb-3">
+        Easy to clean and suits for daily use. High quality channel with epoxy
+        coated.
+      </p>
+      <p class="pt-5 pb-3">
+        Aluminium hinges and handle used.Magnetic strip used to lock the
+        frame.
+      </p>
+      <p class="pt-5 pb-3">Weather strip used to cover the gapes.</p>
+    </div>
+    <div class="product-image"><img src="./images/12.jpg" /></div>
+  </section>
+
+  <section class="product-flex">
+    <div class="content">
+      <h1 class="product-name">BARRIER FREE</h1>
+      <p class="pb-3">
+        Barrier free or collapsible mosquito nets is a unique net system and a
+        great solution for huge openings.It gives wider opening to allow
+        sunlight and fresh air to pass but mesh closed enough to keep the
+        insect out. This screens work on spring less technology with PVC based
+        chain along with the runner in the floor.
+      </p>
+      <p class="pt-5 pb-3">
+        Trackless retractable will not stumble or trip children or
+        adults(saftey). It has the option to use a single shutter openings. It
+        can be suggested to doors, balconies, french doors with large
+        openings. This mesh pleated ployster water proffing mesh.
+      </p>
+    </div>
+    <div class="product-image"><img src="./images/14.jpg" /></div>
+  </section>
+
+  <section class="product-flex">
+    <div class="content">
+      <h1 class="product-name">ROLLER-SHUTTER SYSTEM</h1>
+      <p class="pb-3">
+        Top panel - 50MM, Side panel - 37MM, Bottom panel - 40MM
+      </p>
+      <p class="pt-5 pb-3">Thickness - 17MM, Mesh size - 18X16 accessories</p>
+      <p class="pt-5 pb-3">
+        Fiber componets & Metal spring felt - 4MM/6MM weather strips
+      </p>
+      <p class="pt-5 pb-3">Frame Colour - Dark Brown, Golden Brown & White</p>
+      <p class="pt-5 pb-3">Mesh colour - Gray/Black(Phifer)</p>
+    </div>
+    <div class="product-image"><img src="./images/15.jpg" /></div>
+  </section>
+
+  <section class="product-flex">
+    <div class="content">
+      <h1 class="product-name">PLEATED TYPE SYSTEM</h1>
+      <p class="pb-3">
+        Outer panel - 30MM, Sliding panel - 40MM, Bottom pan accessories - PVC
+        components - 40MM
+      </p>
+      <p class="pt-5 pb-3">
+        Frame colour - Ivory, Black, dark brown, Honey gold, White
+      </p>
+      <p class="pt-5 pb-3">
+        Mesh used - Fiber foldable colour - Gray, Black, Pink, Blue, Brown
+      </p>
+    </div>
+    <div class="product-image"><img src="./images/16.jpg" /></div>
+  </section>
+
+  <section class="product-flex">
+    <div class="content">
+      <h1 class="product-name">SLIDING MOSQUITO NETS</h1>
+      <p class="pb-3">
+        The rectangle two track aluminium system are double cassette doors and
+        balconies. We use an exclusively bottom rolling wheel system for the
+        smooth functioning of sliding screen doors, balconies and windows.
+      </p>
+    </div>
+    <div class="product-image"><img src="./images/17.jpg" /></div>
+  </section>
+
+  <section class="product-flex">
+    <div class="content">
+      <h1 class="product-name">DOOR OPENABLE TYPE</h1>
+      <p class="pb-3">
+        Outer panel - 45MM width, Middle panel - 35MM width, Kick plate - 70MM
+        width
+      </p>
+      <p class="pt-5 pb-3">
+        Door thickness - 20MM, Hinges - Metal created (A+B) attachable handle
+      </p>
+      <p class="pt-5 pb-3">
+        PVC two side handle felt - 4MM weather strips, Rubber - 5.5MM EPOM
+        spine
+      </p>
+      <p class="pt-5 pb-3">
+        Frame colours - Dark brown, Honey gold, White, Mesh used - 5 Fiber,
+        Aluminium, Stainless steel, Black coated SS
+      </p>
+    </div>
+    <div class="product-image"><img src="./images/18.jpg" /></div>
+  </section>
+
+  <footer class="footer">
+    <div class="flex-container v-center relative-container">
+      <div class="footer-item-1">
+        <h2>HEAVEN INTERIORS</h2>
+        <div class="address">
+          <h2>No. 16, Thanthai Periyar street,</h2>
+          <h2>Dr.Ambedkar puratchi nagar,</h2>
+          <h2>Perungudi,</h2>
+          <h2>Chennai - 600096</h2>
+          <h2>
+            <a class="phone" href="tel:+917200387876"> +91-7200387876 </a>
           </h2>
-          <h2 class="phone-num">
-            <a class="phone" href="tel:+917200387876">+91-7200387876</a>
-          </h2>
         </div>
       </div>
-      <div class="flex-container">
-        <div class="fw"><a href="./index.html">HOME</a></div>
-        <div class="fw"><a href="./products.html">PRODUCTS</a></div>
-        <div class="fw"><a href="./index.html#about-us">ABOUT US</a></div>
-        <div class="fw">
-          <a href="./index.html#contact-us">CONTACT US</a>
-        </div>
-      </div>
-      <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
-    </nav>
-
-    <section class="product-flex">
-      <div class="content">
-        <h1 class="product-name">SLEEK OPENABLE TYPE</h1>
-        <p class="pb-3">
-          Outer frame - 20MM width thickness:9MM, Corner - 45 degree corner,
-          Connector - MCB Connector
-        </p>
-        <p class="pt-5 pb-3">
-          Hinges - (A+B) PVC hinges, Stopper - PVC, Handle - PVC
-        </p>
-        <p class="pt-5 pb-3">Rubber - EPOM 2MM spine</p>
-        <p class="pt-5 pb-3">Frame Colour - Dark brown,Honey gold, White</p>
-        <p class="pt-5 pb-3">Mesh used - Fiber,Aluminium,SS,Black Coated SS</p>
-      </div>
-      <div class="product-image"><img src="./images/11.jpg" /></div>
-    </section>
-
-    <section class="product-flex">
-      <div class="content">
-        <h1 class="product-name">MAGNETIC OPENABLE TYPE</h1>
-        <p class="pb-3">
-          Easy to clean and suits for daily use. High quality channel with epoxy
-          coated.
-        </p>
-        <p class="pt-5 pb-3">
-          Aluminium hinges and handle used.Magnetic strip used to lock the
-          frame.
-        </p>
-        <p class="pt-5 pb-3">Weather strip used to cover the gapes.</p>
-      </div>
-      <div class="product-image"><img src="./images/12.jpg" /></div>
-    </section>
-
-    <section class="product-flex">
-      <div class="content">
-        <h1 class="product-name">BARRIER FREE</h1>
-        <p class="pb-3">
-          Barrier free or collapsible mosquito nets is a unique net system and a
-          great solution for huge openings.It gives wider opening to allow
-          sunlight and fresh air to pass but mesh closed enough to keep the
-          insect out. This screens work on spring less technology with PVC based
-          chain along with the runner in the floor.
-        </p>
-        <p class="pt-5 pb-3">
-          Trackless retractable will not stumble or trip children or
-          adults(saftey). It has the option to use a single shutter openings. It
-          can be suggested to doors, balconies, french doors with large
-          openings. This mesh pleated ployster water proffing mesh.
-        </p>
-      </div>
-      <div class="product-image"><img src="./images/14.jpg" /></div>
-    </section>
-
-    <section class="product-flex">
-      <div class="content">
-        <h1 class="product-name">ROLLER-SHUTTER SYSTEM</h1>
-        <p class="pb-3">
-          Top panel - 50MM, Side panel - 37MM, Bottom panel - 40MM
-        </p>
-        <p class="pt-5 pb-3">Thickness - 17MM, Mesh size - 18X16 accessories</p>
-        <p class="pt-5 pb-3">
-          Fiber componets & Metal spring felt - 4MM/6MM weather strips
-        </p>
-        <p class="pt-5 pb-3">Frame Colour - Dark Brown, Golden Brown & White</p>
-        <p class="pt-5 pb-3">Mesh colour - Gray/Black(Phifer)</p>
-      </div>
-      <div class="product-image"><img src="./images/15.jpg" /></div>
-    </section>
-
-    <section class="product-flex">
-      <div class="content">
-        <h1 class="product-name">PLEATED TYPE SYSTEM</h1>
-        <p class="pb-3">
-          Outer panel - 30MM, Sliding panel - 40MM, Bottom pan accessories - PVC
-          components - 40MM
-        </p>
-        <p class="pt-5 pb-3">
-          Frame colour - Ivory, Black, dark brown, Honey gold, White
-        </p>
-        <p class="pt-5 pb-3">
-          Mesh used - Fiber foldable colour - Gray, Black, Pink, Blue, Brown
-        </p>
-      </div>
-      <div class="product-image"><img src="./images/16.jpg" /></div>
-    </section>
-
-    <section class="product-flex">
-      <div class="content">
-        <h1 class="product-name">SLIDING MOSQUITO NETS</h1>
-        <p class="pb-3">
-          The rectangle two track aluminium system are double cassette doors and
-          balconies. We use an exclusively bottom rolling wheel system for the
-          smooth functioning of sliding screen doors, balconies and windows.
-        </p>
-      </div>
-      <div class="product-image"><img src="./images/17.jpg" /></div>
-    </section>
-
-    <section class="product-flex">
-      <div class="content">
-        <h1 class="product-name">DOOR OPENABLE TYPE</h1>
-        <p class="pb-3">
-          Outer panel - 45MM width, Middle panel - 35MM width, Kick plate - 70MM
-          width
-        </p>
-        <p class="pt-5 pb-3">
-          Door thickness - 20MM, Hinges - Metal created (A+B) attachable handle
-        </p>
-        <p class="pt-5 pb-3">
-          PVC two side handle felt - 4MM weather strips, Rubber - 5.5MM EPOM
-          spine
-        </p>
-        <p class="pt-5 pb-3">
-          Frame colours - Dark brown, Honey gold, White, Mesh used - 5 Fiber,
-          Aluminium, Stainless steel, Black coated SS
-        </p>
-      </div>
-      <div class="product-image"><img src="./images/18.jpg" /></div>
-    </section>
-
-    <footer class="footer">
-      <div class="flex-container v-center relative-container">
-        <div class="footer-item-1">
-          <h2>HEAVEN INTERIORS</h2>
-          <div class="address">
-            <h2>No. 16, Thanthai Periyar street,</h2>
-            <h2>Dr.Ambedkar puratchi nagar,</h2>
-            <h2>Perungudi,</h2>
-            <h2>Chennai - 600096</h2>
-            <h2>
-              <a class="phone" href="tel:+917200387876"> +91-7200387876 </a>
-            </h2>
-          </div>
-        </div>
-        <div class="social footer-item-2">
-          <a
-            href="https://www.facebook.com/people/Heaven-mosquito-screens-and-blinds/100085956765494/"
-            ><i class="fa-brands fa-facebook"></i
-          ></a>
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          <a
-            href="https://instagram.com/heaven_interiors__?igshid=MzNlNGNkZWQ4Mg=="
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
-          <a href="https://www.youtube.com/@heaveninteriors8688"
-            ><i class="fa-brands fa-youtube"></i
-          ></a>
-          <a href="https://api.whatsapp.com/send?phone=917200387876">
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-        </div>
-      </div>
-      <div class="social sticky-bottom flex-container v-center h-center">
+      <div class="social footer-item-2">
+        <a href="https://www.facebook.com/people/Heaven-mosquito-screens-and-blinds/100085956765494/"><i
+            class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://instagram.com/heaven_interiors__?igshid=MzNlNGNkZWQ4Mg=="><i
+            class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@heaveninteriors8688"><i class="fa-brands fa-youtube"></i></a>
         <a href="https://api.whatsapp.com/send?phone=917200387876">
           <i class="fa-brands fa-whatsapp"></i>
         </a>
       </div>
-    </footer>
-    <script>
-      function toggleMenu() {
-        console.log("flex-container 2222");
-        var navs = document.querySelectorAll("nav .flex-container");
-        console.log("flex-container 2222", navs);
-        if (navs[1].classList.contains("grow-ani")) {
-          navs[1].classList.remove("grow-ani");
+    </div>
+    <div class="social sticky-bottom flex-container v-center h-center">
+      <a href="https://api.whatsapp.com/send?phone=917200387876">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </div>
+  </footer>
+  <script>
+    function toggleMenu() {
+      var navs = document.querySelectorAll("nav .menu");
+      if (navs[0].classList.contains("grow-ani")) {
+        navs[0].classList.remove("grow-ani");
+      } else {
+        navs[0].classList.add("grow-ani");
+      }
+    }
+
+    function hideMenu() {
+      var navs = document.querySelectorAll("nav .menu");
+      navs[0].classList.remove("grow-ani");
+    }
+    function elementInViewport(el) {
+      var top = el.offsetTop;
+      var left = el.offsetLeft;
+      var width = el.offsetWidth;
+      var height = el.offsetHeight;
+
+      while (el.offsetParent) {
+        el = el.offsetParent;
+        top += el.offsetTop;
+        left += el.offsetLeft;
+      }
+
+      return (
+        top >= window.pageYOffset &&
+        left >= window.pageXOffset &&
+        top + height <= window.pageYOffset + window.innerHeight &&
+        left + width <= window.pageXOffset + window.innerWidth
+      );
+    }
+    function elementInViewport2(el) {
+      var top = el.offsetTop;
+      var left = el.offsetLeft;
+      var width = el.offsetWidth;
+      var height = el.offsetHeight;
+
+      while (el.offsetParent) {
+        el = el.offsetParent;
+        top += el.offsetTop;
+        left += el.offsetLeft;
+      }
+
+      return (
+        top < window.pageYOffset + window.innerHeight &&
+        left < window.pageXOffset + window.innerWidth &&
+        top + height > window.pageYOffset &&
+        left + width > window.pageXOffset
+      );
+    }
+    window.addEventListener("scroll", function () {
+      var content = document.querySelectorAll(".content");
+      var productImage = document.querySelectorAll(".product-image");
+      for (var i = 0; i < content.length; i++) {
+        console.log(i, "   ", elementInViewport2(content[i]));
+        if (elementInViewport2(content[i])) {
+          content[i].classList.add("slide-left");
         } else {
-          navs[1].classList.add("grow-ani");
+          content[i].classList.remove("slide-left");
+        }
+        if (elementInViewport2(productImage[i])) {
+          productImage[i].classList.add("slide-right");
+        } else {
+          productImage[i].classList.remove("slide-right");
         }
       }
-      function elementInViewport(el) {
-        var top = el.offsetTop;
-        var left = el.offsetLeft;
-        var width = el.offsetWidth;
-        var height = el.offsetHeight;
+    });
+  </script>
+</body>
 
-        while (el.offsetParent) {
-          el = el.offsetParent;
-          top += el.offsetTop;
-          left += el.offsetLeft;
-        }
-
-        return (
-          top >= window.pageYOffset &&
-          left >= window.pageXOffset &&
-          top + height <= window.pageYOffset + window.innerHeight &&
-          left + width <= window.pageXOffset + window.innerWidth
-        );
-      }
-      function elementInViewport2(el) {
-        var top = el.offsetTop;
-        var left = el.offsetLeft;
-        var width = el.offsetWidth;
-        var height = el.offsetHeight;
-
-        while (el.offsetParent) {
-          el = el.offsetParent;
-          top += el.offsetTop;
-          left += el.offsetLeft;
-        }
-
-        return (
-          top < window.pageYOffset + window.innerHeight &&
-          left < window.pageXOffset + window.innerWidth &&
-          top + height > window.pageYOffset &&
-          left + width > window.pageXOffset
-        );
-      }
-      window.addEventListener("scroll", function () {
-        var content = document.querySelectorAll(".content");
-        var productImage = document.querySelectorAll(".product-image");
-        for (var i = 0; i < content.length; i++) {
-          console.log(i, "   ", elementInViewport2(content[i]));
-          if (elementInViewport2(content[i])) {
-            content[i].classList.add("slide-left");
-          } else {
-            content[i].classList.remove("slide-left");
-          }
-          if (elementInViewport2(productImage[i])) {
-            productImage[i].classList.add("slide-right");
-          } else {
-            productImage[i].classList.remove("slide-right");
-          }
-        }
-      });
-    </script>
-  </body>
 </html>
