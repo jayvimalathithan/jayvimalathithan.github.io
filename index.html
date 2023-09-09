@@ -259,9 +259,26 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 100;
-      box-shadow: 3px 3px 8px 8px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
       opacity: 0;
       border-radius: 12px;
+      padding: 12px 24px;
+      animation: toast-glow 1.5s infinite;
+      color:white;
+    }
+
+    @keyframes toast-glow {
+      0% {
+        box-shadow: 0px 0px 5px 5px rgba(105, 175, 75, 0.5);
+      }
+
+      50% {
+        box-shadow: 0px 0px 10px 10px rgba(105, 175, 75, 0.6);
+      }
+
+      100% {
+        box-shadow: 0px 0px 20px 20px rgba(105, 175, 75, 0.8);
+      }
     }
 
     .appear {
@@ -495,9 +512,11 @@
       box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.45);
       transform: scaleY(1.01);
     }
+
     .ratings {
       margin-top: 15px;
     }
+
     .right {
       text-align: right;
     }
@@ -510,8 +529,8 @@
 
     /* FOOTER START */
     .footer {
-      padding-top:60px;
-      padding-bottom:30px;
+      padding-top: 60px;
+      padding-bottom: 30px;
       background-color: #2c3e50;
       color: white;
     }
@@ -688,7 +707,7 @@
       }
 
       .review {
-        flex-basis:20%;
+        flex-basis: 20%;
       }
 
       .nav-main-container {
@@ -864,20 +883,34 @@
 
     <section id="about-us" class="section-1">
       <p class="first-letter pb-1 pt-30">
-        Welcome to Heaven Interiors, where we believe that your home should be a sanctuary of comfort and tranquility. Our passion lies in creating spaces that offer both elegance and protection, and our premium mosquito nets are a testament to that commitment. With a seamless blend of craftsmanship and functionality, our mosquito nets not only elevate the aesthetics of your living spaces but also provide a secure shield against unwanted intruders. Explore our exquisite range and discover how Heaven Interiors can transform your nights into peaceful, uninterrupted dreams.
+        Welcome to Heaven Interiors, where we believe that your home should be a sanctuary of comfort and tranquility.
+        Our passion lies in creating spaces that offer both elegance and protection, and our premium mosquito nets are a
+        testament to that commitment. With a seamless blend of craftsmanship and functionality, our mosquito nets not
+        only elevate the aesthetics of your living spaces but also provide a secure shield against unwanted intruders.
+        Explore our exquisite range and discover how Heaven Interiors can transform your nights into peaceful,
+        uninterrupted dreams.
       </p>
 
       <p class="pb-1">
-        At Heaven Interiors, we take pride in offering mosquito nets that redefine comfort and style. Our nets are meticulously crafted to ensure unparalleled quality and beauty. Whether you're looking to safeguard your family's health, add an element of sophistication to your interior decor, or both, our mosquito nets have you covered. With easy installation and customizable options, you can trust that Heaven Interiors provides the perfect solution for a serene and bug-free living experience.
+        At Heaven Interiors, we take pride in offering mosquito nets that redefine comfort and style. Our nets are
+        meticulously crafted to ensure unparalleled quality and beauty. Whether you're looking to safeguard your
+        family's health, add an element of sophistication to your interior decor, or both, our mosquito nets have you
+        covered. With easy installation and customizable options, you can trust that Heaven Interiors provides the
+        perfect solution for a serene and bug-free living experience.
       </p>
       <p class="pb-15">
-        Have questions or need assistance in choosing the ideal mosquito net for your home? At Heaven Interiors, we're dedicated to ensuring your satisfaction. Our friendly and knowledgeable team is just a click or call away. Reach out to us today to discuss your requirements, request customization, or get expert advice on creating a peaceful haven within your living spaces. We're here to help you make the most of our premium mosquito nets and create a heavenly environment right in your home. Contact Heaven Interiors, and experience comfort and protection like never before.
+        Have questions or need assistance in choosing the ideal mosquito net for your home? At Heaven Interiors, we're
+        dedicated to ensuring your satisfaction. Our friendly and knowledgeable team is just a click or call away. Reach
+        out to us today to discuss your requirements, request customization, or get expert advice on creating a peaceful
+        haven within your living spaces. We're here to help you make the most of our premium mosquito nets and create a
+        heavenly environment right in your home. Contact Heaven Interiors, and experience comfort and protection like
+        never before.
       </p>
     </section>
 
     <section id="contact-us" class="section-0">
       <div class="toast">
-        <h1 class="form-enquiry">Message Sent</h1>
+        <h2>Message Sent.</h2>
       </div>
       <form>
         <h1 class="form-enquiry">Enquiry</h1>
@@ -1236,25 +1269,27 @@
         "cm": message
       }
       var raw = JSON.stringify(dt);
-      console.log('RAW BODY:', raw)
+      //console.log('RAW BODY:', raw)
       var requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: raw,
         redirect: 'follow'
       };
-      /*
+      document.body.style.cursor='wait'
       fetch("https://3p63h0vck0.execute-api.ap-south-1.amazonaws.com/default/sendmail", requestOptions)
         .then(response => response.text())
         .then(result => {
           let data = JSON.parse(result)
-          if (data['statusCode']==200) {
+          if (data['statusCode'] == 200) {
             document.querySelector(".toast").classList.add("appear");
-            setTimeout(()=>{document.querySelector(".toast").classList.remove("appear");},3000)
+            setTimeout(() => { 
+              document.querySelector(".toast").classList.remove("appear"); 
+              document.body.style.cursor='default'
+            }, 1500)
           }
-         })
+        })
         .catch(error => console.log('error', error));
-        */
 
     }
 
