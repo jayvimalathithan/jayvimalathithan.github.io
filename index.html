@@ -26,10 +26,10 @@
     }
 
     p {
-      font-size: 24px;
-      letter-spacing: 1.5px;
+      font-size: 18px;
+      letter-spacing: 1.4px;
       line-height: 1.32;
-      padding: 24px;
+      padding: 18px;
     }
 
     p.first-letter::first-letter {
@@ -52,14 +52,17 @@
       font-weight: 800;
     }
 
-
     nav {
-      position: relative;
-      background: #777;
-      color: white;
       display: grid;
       grid-template-columns: 30px auto;
       column-gap: 10px;
+      background-color: rgba(44, 62, 80, 1);
+      color: white;
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
     }
 
     .logo,
@@ -70,8 +73,7 @@
     .title {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      margin-left: 20px;
     }
 
     .menu {
@@ -85,27 +87,23 @@
     .title,
     .menu,
     .fa-bars {
-      margin: 20px 5px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .logo {
+      margin-left: 15px;
+      margin-right: 15px;
     }
 
     section:target {
       padding-top: 80px;
     }
 
-    nav {
-      background-color: rgba(44, 62, 80, 1);
-      color: white;
-      position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 2;
-    }
-
     .fa-bars {
       display: inline;
       position: absolute;
-      top: 15px;
+      top: 7.5px;
       right: 2px;
       color: white;
       font-size: 28px;
@@ -115,11 +113,12 @@
 
     .menu a {
       display: inline-block;
-      padding: 16px 32px;
+      padding: 12px 18px;
       color: white;
       text-decoration: none;
-      font-size: 22px;
+      font-size: 18px;
       width: 100%;
+      border-radius: 8px;
     }
 
     .menu a:hover {
@@ -128,11 +127,11 @@
     }
 
     .menu>div:first-child {
-      margin-top: 10px;
+      margin-top: 5px;
     }
 
     .menu>div:last-child {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     .grow-ani {
@@ -147,7 +146,7 @@
       }
 
       to {
-        height: 250px;
+        height: 200px;
         visibility: visible;
       }
     }
@@ -183,18 +182,19 @@
       text-align: center;
       color: #fff;
       text-transform: uppercase;
-      padding: 18px;
+      padding: 2px 8px;
+
     }
 
     form {
-      width: 400px;
+      width: 90%;
       background: rgba(36, 30, 78, 0.82);
-      border-radius: 12px;
-      margin: 24px;
+      border-radius: 6px;
+      margin: 18px;
     }
 
     .control {
-      margin: 24px;
+      margin: 16px;
     }
 
     label {
@@ -206,27 +206,28 @@
     }
 
     div.label {
-      margin-bottom: 15px;
+      margin-bottom: 1px;
     }
 
     input[type="text"],
     textarea {
       width: 100%;
-      padding: 18px;
+      padding: 12px;
       height: 30px;
       outline: none;
       border: none;
-      border-radius: 12px;
+      border-radius: 4px;
       font-size: 18px;
     }
 
     textarea {
-      height: 120px;
+      height: 85px;
     }
 
     .btn-container {
       text-align: center;
-      margin: 24px 24px 32px 24px;
+      margin: 12px;
+      margin-bottom: 18px;
     }
 
     .btn {
@@ -234,7 +235,7 @@
       text-decoration: none;
       font-size: 18px;
       color: #fff;
-      padding: 20px 51.2px;
+      padding: 20px 52px;
       background: rgba(105, 175, 75, 0.95);
       letter-spacing: 5px;
       /* box-shadow: 0px 0px 8px 8px rgba(105, 175, 75, 0.5); */
@@ -277,14 +278,10 @@
       }
     }
 
-    section {
-      min-height: 100vh;
-      /*min-height: calc(~"100vh - 190px"); */
-    }
-
     .section-1 {
       background: #57606f;
       color: white;
+      min-height: 100vh;
     }
 
     .section-0 {
@@ -295,16 +292,19 @@
       background: rgba(36, 30, 78, 0.42);
       color: black;
       position: relative;
+      min-height: 100vh;
     }
 
     .section-2 {
       background: #57606f;
       color: white;
+      min-height: 100vh;
     }
 
     .section-3 {
       background: #a4b0be;
       color: rgba(0, 0, 0, 0.65);
+      margin-bottom: 25px;
     }
 
     /* CAROUSEL START */
@@ -482,6 +482,7 @@
 
     .review {
       flex: 1 1 0;
+      flex-basis: 90%;
       margin: 10px;
       padding: 15px;
       border: 1.75px solid black;
@@ -494,11 +495,9 @@
       box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.45);
       transform: scaleY(1.01);
     }
-
     .ratings {
       margin-top: 15px;
     }
-
     .right {
       text-align: right;
     }
@@ -511,6 +510,8 @@
 
     /* FOOTER START */
     .footer {
+      padding-top:60px;
+      padding-bottom:30px;
       background-color: #2c3e50;
       color: white;
     }
@@ -518,7 +519,7 @@
     .footer-item-1 {
       padding-left: 30px;
       padding-top: 30px;
-      line-height:1.6;
+      line-height: 1.6;
       letter-spacing: 2px;
     }
 
@@ -627,7 +628,7 @@
       letter-spacing: 2px;
       line-height: 1.2;
     }
-    
+
     .video-box-dimension {
       width: 100%;
       height: 400px;
@@ -679,19 +680,23 @@
     @media screen and (min-width: 768px) {
 
       h1.form-enquiry {
-        padding: 24px;
+        padding: 6px 8px 2px;
       }
 
       form {
-        width: 600px;
+        width: 30%;
       }
 
-      .fa-bars {
-        display: none;
+      .review {
+        flex-basis:20%;
       }
 
       .nav-main-container {
         display: flex;
+      }
+
+      .section-3 {
+        margin-bottom: 80px;
       }
 
       section:target {
@@ -714,6 +719,14 @@
 
       .fa-bars {
         display: none;
+      }
+
+      .logo,
+      .title,
+      .menu,
+      .fa-bars {
+        margin-top: 15px;
+        margin-bottom: 15px;
       }
 
       .menu>div:first-child {
@@ -741,6 +754,7 @@
       .video-text {
         padding-bottom: 24px;
       }
+
       .video-box-dimension {
         width: 60%;
         height: 400px;
@@ -793,27 +807,26 @@
 <body>
   <div class="container">
     <nav>
-
       <div class="logo">
         <a class="phone" href="tel:+917200387876">
-          <img class="logo-img" src="./images/logo.jpeg" height="48px" width="48px" />
+          <img class="logo-img" src="./images/logo.jpeg" height="38px" width="38px" />
         </a>
       </div>
       <div class="title">
-        <h2 class="company-name">
+        <h4 class="company-name">
           <a class="phone" href="tel:+917200387876">HEAVEN INTERIORS</a>
           &nbsp;&nbsp;
-        </h2>
-        <h2 class="phone-num">
+        </h4>
+        <h4 class="phone-num">
           <a class="phone" href="tel:+917200387876">+91-7200387876</a>
-        </h2>
+        </h4>
       </div>
 
       <div class="menu">
-        <div class="fw"><a href="./index.html" onclick="hideMenu()">HOME</a></div>
-        <div class="fw"><a href="./products.html" onclick="hideMenu()">PRODUCTS</a></div>
-        <div class="fw"><a href="./index.html#about-us" onclick="hideMenu()">ABOUT US</a></div>
-        <div class="fw"><a href="./index.html#contact-us" onclick="hideMenu()">CONTACT US</a></div>
+        <div><a href="./index.html" onclick="hideMenu()">HOME</a></div>
+        <div><a href="./products.html" onclick="hideMenu()">PRODUCTS</a></div>
+        <div><a href="./index.html#about-us" onclick="hideMenu()">ABOUT US</a></div>
+        <div><a href="./index.html#contact-us" onclick="hideMenu()">CONTACT US</a></div>
       </div>
       <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
 
@@ -851,32 +864,14 @@
 
     <section id="about-us" class="section-1">
       <p class="first-letter pb-1 pt-30">
-        Heaven interiors makes your space elegant and alluring with our
-        mosquito screens and blinds With great designs and promising quality
-        we serve you our best of all Visit us on once and you'll beleive us
-        again.
+        Welcome to Heaven Interiors, where we believe that your home should be a sanctuary of comfort and tranquility. Our passion lies in creating spaces that offer both elegance and protection, and our premium mosquito nets are a testament to that commitment. With a seamless blend of craftsmanship and functionality, our mosquito nets not only elevate the aesthetics of your living spaces but also provide a secure shield against unwanted intruders. Explore our exquisite range and discover how Heaven Interiors can transform your nights into peaceful, uninterrupted dreams.
       </p>
 
       <p class="pb-1">
-        Heaven Mosquito screen is the trusted name in the manufacturing and
-        supply of mosquito net doors and windows. With a state-of-the-art
-        manufacturing facility and committed workforce, we produce truly
-        global products with innovation and a healthy way of protection
-        against flying insects. Our well-experienced marketing professionals
-        and skilled technicians will provide you with the best solution for
-        your needs.
+        At Heaven Interiors, we take pride in offering mosquito nets that redefine comfort and style. Our nets are meticulously crafted to ensure unparalleled quality and beauty. Whether you're looking to safeguard your family's health, add an element of sophistication to your interior decor, or both, our mosquito nets have you covered. With easy installation and customizable options, you can trust that Heaven Interiors provides the perfect solution for a serene and bug-free living experience.
       </p>
       <p class="pb-15">
-        Heaven interiors is incepted in 2021, we are the apex in Manufacturer
-        and Retailer of the best range of Window and Door Components, Mosquito
-        Mesh, Mosquito Screens & Net and many more. Procured from the
-        certified vendors of the market, all these products are highly
-        applauded by the customers for their least maintenance, longer
-        lifespan, robustness, seamless finish and abrasion & corrosion
-        resistance. These products are stringently examined on variegated
-        parameters of quality and then forwarded for the final dispatch to the
-        clients. All these products are made available by us in various
-        specifications, so as to meet the exact need of the customers.
+        Have questions or need assistance in choosing the ideal mosquito net for your home? At Heaven Interiors, we're dedicated to ensuring your satisfaction. Our friendly and knowledgeable team is just a click or call away. Reach out to us today to discuss your requirements, request customization, or get expert advice on creating a peaceful haven within your living spaces. We're here to help you make the most of our premium mosquito nets and create a heavenly environment right in your home. Contact Heaven Interiors, and experience comfort and protection like never before.
       </p>
     </section>
 
@@ -934,9 +929,10 @@
 
     <section class="section-2 flex-container h-center v-center" style="flex-direction:column !important;">
       <h2 class="video-text">Experience Heavenly Comfort with Our Mosquito Nets</h2>
-        <iframe class="video-box-dimension" src="https://www.youtube.com/embed/plR9QPGuN7E" title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+      <iframe class="video-box-dimension" src="https://www.youtube.com/embed/plR9QPGuN7E" title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
     </section>
 
     <section id="review-container" class="section-3 review-container">
@@ -956,18 +952,6 @@
             <i class="fa-solid fa-star"></i>
           </div>
         </div>
-        <!--
-        <div class="review">
-          <p>Delivered good service.</p>
-          <br />
-          <div class="right">- Sundarrajan</div>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </div>
-        -->
         <div class="review">
           <p>
             All the items are of great quality at an affordable price than
