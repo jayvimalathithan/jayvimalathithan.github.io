@@ -14,6 +14,9 @@
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+      html {
+      scroll-behavior: smooth;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -312,6 +315,7 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+      /* position:relative; */
     }
 
     .product-name {
@@ -322,7 +326,9 @@
     .content {
       flex: 2 1 0;
     }
-
+    .product-image { 
+      /* position: absolute; */
+    }
     .product-image img {
       flex: 1 1 0;
       height: 250px;
@@ -330,9 +336,32 @@
       /*box-shadow: 2px 2px 3px 3px black;*/
     }
 
+    .slide-left {
+       animation: slide-left 1s ease-in-out; 
+    }
+
     .slide-right {
-      /* border: 5px solid white; */
-      animation: appear 5s;
+       animation: slide-right 1s ease-in-out; 
+    }
+
+    @keyframes slide-left {
+      from {
+        transform: translateX(300%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slide-right {
+      from {
+        transform: translateX(-300%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
     }
 
     @keyframes appear {
@@ -705,21 +734,31 @@
         left + width > window.pageXOffset
       );
     }
+    window.addEventListener("load", function () {
+      var productImage = document.querySelectorAll(".product-image")[0];
+      if (elementInViewport2(productImage)) {
+          productImage.classList.add("slide-left");
+        }   
+    });
     window.addEventListener("scroll", function () {
       var content = document.querySelectorAll(".content");
       var productImage = document.querySelectorAll(".product-image");
       for (var i = 0; i < content.length; i++) {
         console.log(i, "   ", elementInViewport2(content[i]));
+        /*
         if (elementInViewport2(content[i])) {
           content[i].classList.add("slide-left");
         } else {
           content[i].classList.remove("slide-left");
         }
+        */
+        var clzName = (i%2==0)?"slide-left":"slide-right";
         if (elementInViewport2(productImage[i])) {
-          productImage[i].classList.add("slide-right");
-        } else {
-          productImage[i].classList.remove("slide-right");
-        }
+          productImage[i].classList.add(clzName);
+        } 
+        // else {
+        //   productImage[i].classList.remove(clzName);
+        // }
       }
     });
   </script>
