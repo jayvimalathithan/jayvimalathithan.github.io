@@ -313,6 +313,7 @@
 
     .product-flex {
       display: flex;
+      flex-direction: column;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
@@ -331,14 +332,15 @@
       flex: 1 1 0;
       height: 250px;
       width: 250px;
+      margin-bottom: 30px;
     }
 
     .slide-left {
-      animation: slide-left 1s ease-in-out;
+      animation: appear 1s ease-in-out;
     }
 
     .slide-right {
-      animation: slide-right 1s ease-in-out;
+      animation: appear 1s ease-in-out;
     }
 
     @keyframes slide-left {
@@ -380,6 +382,7 @@
     }
 
     @media screen and (min-width: 768px) {
+      
       nav .fw a {
         padding: 16px 20px;
       }
@@ -444,7 +447,9 @@
         width: 800px;
         height: 600px;
       }
-
+      .product-flex {
+        flex-direction: row;
+      }
       .product-image img {
         margin-left: 35px;
         margin-right: 35px;
@@ -530,7 +535,7 @@
   <nav>
     <div class="logo">
       <a class="phone" href="tel:+917200387876">
-        <img class="logo-img" src="./images/logo.jpeg" height="38px" width="38px" />
+        <img class="logo-img" src="./images/logo.jpeg" alt="Heaven interiors logo" height="38px" width="38px" />
       </a>
     </div>
     <div class="title">
@@ -566,7 +571,7 @@
       <p class="pt-5 pb-3">Frame Colour - Dark brown,Honey gold, White</p>
       <p class="pt-5 pb-3">Mesh used - Fiber,Aluminium,SS,Black Coated SS</p>
     </div>
-    <div class="product-image"><img src="./images/11.jpg" /></div>
+    <div class="product-image"><img src="./images/11.jpg" alt="Sleek openable type mosquito nets" /></div>
   </section>
 
   <section class="product-flex">
@@ -582,7 +587,7 @@
       </p>
       <p class="pt-5 pb-3">Weather strip used to cover the gapes.</p>
     </div>
-    <div class="product-image"><img src="./images/12.jpg" /></div>
+    <div class="product-image"><img src="./images/12.jpg" alt="Magnetic openable type mosquito nets" /></div>
   </section>
 
   <section class="product-flex">
@@ -596,7 +601,7 @@
         chain along with the runner in the floor.
       </p>
     </div>
-    <div class="product-image"><img src="./images/14.jpg" /></div>
+    <div class="product-image"><img src="./images/14.jpg" alt="Barrier free mosquito nets"/></div>
   </section>
 
   <section class="product-flex">
@@ -612,7 +617,7 @@
       <p class="pt-5 pb-3">Frame Colour - Dark Brown, Golden Brown & White</p>
       <p class="pt-5 pb-3">Mesh colour - Gray/Black(Phifer)</p>
     </div>
-    <div class="product-image"><img src="./images/15.jpg" /></div>
+    <div class="product-image"><img src="./images/15.jpg" alt="Roller shutter system mosquito nets"/></div>
   </section>
 
   <section class="product-flex">
@@ -629,7 +634,7 @@
         Mesh used - Fiber foldable colour - Gray, Black, Pink, Blue, Brown
       </p>
     </div>
-    <div class="product-image"><img src="./images/16.jpg" /></div>
+    <div class="product-image"><img src="./images/16.jpg" alt="Pleated type system mosquito nets"/></div>
   </section>
 
   <section class="product-flex">
@@ -641,7 +646,7 @@
         smooth functioning of sliding screen doors, balconies and windows.
       </p>
     </div>
-    <div class="product-image"><img src="./images/17.jpg" /></div>
+    <div class="product-image"><img src="./images/17.jpg" alt="Sliding mosquito nets"/></div>
   </section>
 
   <section class="product-flex">
@@ -663,7 +668,7 @@
         Aluminium, Stainless steel, Black coated SS
       </p>
     </div>
-    <div class="product-image"><img src="./images/18.jpg" /></div>
+    <div class="product-image"><img src="./images/18.jpg" alt="Door openable type mosquito nets"></div>
   </section>
 
   <section class="product-flex">
@@ -678,7 +683,7 @@
         the brightness it needs.
       </p>
     </div>
-    <div class="product-image"><img src="./images/19.jpg" /></div>
+    <div class="product-image"><img src="./images/19.jpg" alt="Zebra blinds"/></div>
   </section>
 
   <section class="product-flex">
@@ -689,7 +694,7 @@
         strong winds and rains to high levels of UV light from the sun without warping, cracking or fading.
       </p>
     </div>
-    <div class="product-image"><img src="./images/20.jpg" /></div>
+    <div class="product-image"><img src="./images/20.jpg" alt="PVC Exterior blinds"/></div>
   </section>
 
   <section class="product-flex">
@@ -706,7 +711,7 @@
         They also go with almost all kinds of home decor, including vintage, rustic and contemporary.
       </p>
     </div>
-    <div class="product-image"><img src="./images/21.jpg" /></div>
+    <div class="product-image"><img src="./images/21.jpg" alt="Bamboo blinds"/></div>
   </section>
 
   <section class="product-flex">
@@ -731,7 +736,7 @@
         Operates easily and flexible attributes
       </p>
     </div>
-    <div class="product-image"><img src="./images/22.jpg" /></div>
+    <div class="product-image"><img src="./images/22.jpg" alt="Roller blinds"/></div>
   </section>
 
   <footer class="footer">
